@@ -104,6 +104,92 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // 2b. Leave Review Modal Form
+    // ==========================================
+    const reviewModal = document.getElementById('review-modal');
+    const leaveReviewBtn = document.getElementById('leave-review-btn');
+    const closeReviewModalBtn = document.getElementById('close-review-modal-btn');
+    const reviewSuccessCloseBtn = document.getElementById('review-success-close-btn');
+    const reviewForm = document.getElementById('review-form');
+    const reviewSuccessState = document.getElementById('review-success-msg');
+    const reviewPhotoInput = document.getElementById('review-photo');
+    const fileChosenText = document.getElementById('file-chosen-text');
+
+    function openReviewModal() {
+        if (reviewModal) {
+            reviewModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeReviewModal() {
+        if (reviewModal) {
+            reviewModal.classList.remove('active');
+            document.body.style.overflow = '';
+            // Reset form and success state after animation finishes
+            setTimeout(() => {
+                if (reviewForm && reviewSuccessState) {
+                    reviewForm.style.display = 'flex';
+                    reviewSuccessState.style.display = 'none';
+                    reviewForm.reset();
+                    if (fileChosenText) {
+                        fileChosenText.textContent = 'Няма избрана снимка';
+                    }
+                }
+            }, 300);
+        }
+    }
+
+    if (leaveReviewBtn) {
+        leaveReviewBtn.addEventListener('click', openReviewModal);
+    }
+
+    if (closeReviewModalBtn) {
+        closeReviewModalBtn.addEventListener('click', closeReviewModal);
+    }
+
+    if (reviewSuccessCloseBtn) {
+        reviewSuccessCloseBtn.addEventListener('click', closeReviewModal);
+    }
+
+    if (reviewModal) {
+        reviewModal.addEventListener('click', (e) => {
+            if (e.target === reviewModal) {
+                closeReviewModal();
+            }
+        });
+    }
+
+    if (reviewPhotoInput && fileChosenText) {
+        reviewPhotoInput.addEventListener('change', function() {
+            if (this.files && this.files.length > 0) {
+                fileChosenText.textContent = `Избран файл: ${this.files[0].name}`;
+            } else {
+                fileChosenText.textContent = 'Няма избрана снимка';
+            }
+        });
+    }
+
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-review-btn');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Изпращане... <i class="fas fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                reviewForm.style.display = 'none';
+                reviewSuccessState.style.display = 'flex';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }, 1000);
+        });
+    }
+
+    // ==========================================
     // 3. Interactive Chatbot Simulator
     // ==========================================
     const chatMessages = document.getElementById('chat-messages');

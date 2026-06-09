@@ -55,6 +55,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -64,6 +65,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1785,4 +1787,91 @@ img, svg {
     .footer-links {
         gap: 16px;
     }
+}
+
+/* Testimonial avatar styles */
+.testimonial-user {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+.testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-orange);
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--color-black);
+}
+
+.user-info span {
+    font-size: 0.75rem;
+    color: var(--color-gray-dark);
+}
+
+.testimonials-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+/* File input styling inside review modal */
+.flex-column-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-charcoal);
+    border: 1px dashed var(--color-gray-border);
+    padding: 14px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    transition: var(--transition-fast);
+    text-align: center;
+}
+
+.file-label:hover {
+    background-color: var(--color-orange-light);
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+}
+
+.file-input-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.file-chosen-preview {
+    font-size: 0.75rem;
+    color: var(--color-gray-dark);
+    text-align: center;
+    font-style: italic;
 }

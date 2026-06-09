@@ -418,12 +418,12 @@
                     <div class="why-us-founders">
                         <div class="founders-images-grid">
                             <div class="founder-photo-card">
-                                <img src="assets/bozhidar.png" alt="Божидар Иванов" class="founder-img">
+                                <img src="assets/bozhidar.webp" alt="Божидар Иванов" class="founder-img">
                                 <span class="founder-role">Код & Дизайн</span>
                                 <h5>Божидар Иванов</h5>
                             </div>
                             <div class="founder-photo-card">
-                                <img src="assets/kaloyan.png" alt="Калоян Димитров" class="founder-img">
+                                <img src="assets/kaloyan.webp" alt="Калоян Димитров" class="founder-img">
                                 <span class="founder-role">Маркетинг & Реклама</span>
                                 <h5>Калоян Димитров</h5>
                             </div>
@@ -473,8 +473,11 @@
                         "Предишният ни сайт беше направен от познат и не носеше никакви клиенти. Когато момчетата пуснаха новия сайт и рекламите, телефонът започна да звъни още на третия ден. Графикът ни за покриви е пълен за следващите 3 месеца!"
                     </p>
                     <div class="testimonial-user">
-                        <strong>Георги Тодоров</strong>
-                        <span>"Покриви Тодоров" ЕООД, гр. София</span>
+                        <img src="assets/review1.jpg" alt="Георги Тодоров" class="testimonial-avatar">
+                        <div class="user-info">
+                            <strong>Георги Тодоров</strong>
+                            <span>гр. София</span>
+                        </div>
                     </div>
                 </div>
 
@@ -484,11 +487,14 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Хареса ми това, че не ми обещаваха планини от злато, а ми казаха директно какво трябва да се направи. Чатботът на сайта спестява много време – хората вече знаят какво искат преди изобщо да ми звъннат."
+                        "Работят изключително професионално и чисто. Сайтът е много удобен, а чатботът ни спестява супер много време – хората се свързват с нас вече подготвени и с конкретно запитване."
                     </p>
                     <div class="testimonial-user">
-                        <strong>Радослав Василев</strong>
-                        <span>"Василев Билд" (вътрешни ремонти), гр. Пловдив</span>
+                        <img src="assets/review2.jpg" alt="Радослав Василев" class="testimonial-avatar">
+                        <div class="user-info">
+                            <strong>Радослав Василев</strong>
+                            <span>гр. Пловдив</span>
+                        </div>
                     </div>
                 </div>
 
@@ -498,13 +504,20 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Изключително точни. Хостингът и поддръжката наистина са безплатни и когато искам да сменя някоя снимка в галерията, Божидар я качва веднага. Силно препоръчвам!"
+                        "Изключително точни. Хостингът и поддръжката наистина са безплатни и когато искам да сменя някоя снимка в галерията, момчетата я качват веднага. Силно препоръчвам!"
                     </p>
                     <div class="testimonial-user">
-                        <strong>Инж. Димитър Петров</strong>
-                        <span>"Кей Джи Строй", гр. Варна</span>
+                        <img src="assets/review3.jpg" alt="Инж. Димитър Петров" class="testimonial-avatar">
+                        <div class="user-info">
+                            <strong>Инж. Димитър Петров</strong>
+                            <span>гр. Варна</span>
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="testimonials-actions text-center">
+                <button class="btn btn-secondary" id="leave-review-btn">Остави отзив</button>
             </div>
         </div>
     </section>
@@ -516,9 +529,6 @@
             <p>Не губете време с евтини шаблони. Нека изградим система, която работи за вас денонощно.</p>
             <div class="cta-box">
                 <button class="btn btn-primary btn-large trigger-popup" id="footer-main-cta">Кандидатствай за проект сега</button>
-                <div class="limited-spots">
-                    <i class="fas fa-calendar-check text-orange"></i> Остава само 1 свободно място за този месец
-                </div>
             </div>
         </div>
     </section>
@@ -581,6 +591,58 @@
                     Формата беше изпратена успешно. Божидар или Калоян ще се свържат с вас на посочения телефонен номер в рамките на 24 часа (обикновено по-рано), за да обсъдим детайлите.
                 </p>
                 <button class="btn btn-secondary btn-full" id="success-close-btn">Затвори</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Leave Review Modal -->
+    <div class="modal-overlay" id="review-modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="close-review-modal-btn" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h3>Остави своя отзив</h3>
+                <p>Качете снимка и споделете опита си от работата с Премиум студио.</p>
+            </div>
+            
+            <form class="modal-form" id="review-form">
+                <div class="form-group flex-column-layout">
+                    <label for="review-photo" class="file-label">
+                        <i class="fas fa-cloud-upload-alt"></i> Качи снимка от устройството
+                    </label>
+                    <input type="file" id="review-photo" name="photo" accept="image/*" class="file-input-hidden">
+                    <div id="file-chosen-text" class="file-chosen-preview">Няма избрана снимка</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-name">Вашето име *</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="review-name" name="name" placeholder="Например: Георги Тодоров" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-text">Вашият отзив *</label>
+                    <textarea id="review-text" name="text" rows="4" placeholder="Напишете вашите впечатления..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full" id="submit-review-btn">
+                    Изпрати за преглед <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+
+            <!-- Success State (Hidden by default) -->
+            <div class="modal-success-state" id="review-success-msg">
+                <div class="success-icon-wrapper">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Благодарим ви за отзива!</h3>
+                <p>
+                    Вашият отзив беше изпратен успешно за преглед и ще бъде публикуван след одобрение.
+                </p>
+                <button class="btn btn-secondary btn-full" id="review-success-close-btn">Затвори</button>
             </div>
         </div>
     </div>
