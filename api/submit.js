@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
         const telegramChatId = process.env.TELEGRAM_CHAT_ID || '8625026165';
         
-        let telegramPromise = Promise.resolve();
+        let telegramPromise = Promise.resolve(null);
         if (telegramToken && telegramChatId) {
             const telegramText = `🚀 <b>Нова заявка в Премиум Студио!</b>\n\n📱 <b>Телефон:</b> <code>${phone}</code>\n📝 <b>Описание:</b>\n${description}`;
 
@@ -36,14 +36,25 @@ export default async function handler(req, res) {
                     text: telegramText,
                     parse_mode: 'HTML'
                 })
+            }).then(async (r) => {
+                const data = await r.json();
+                if (!r.ok) {
+                    console.error('Telegram API error status:', r.status, data);
+                } else {
+                    console.log('Telegram message sent successfully:', data);
+                }
+                return { status: r.status, ok: r.ok, data };
+            }).catch(err => {
+                console.error('Telegram request failed:', err);
+                return { error: err.message };
             });
         } else {
-            console.warn('Missing Telegram credentials in environment.');
+            console.warn('Missing Telegram credentials in environment. TELEGRAM_BOT_TOKEN is not set.');
         }
 
         // 2. Normalize Phone & Send Twilio SMS
         const normalizedPhone = normalizePhone(phone);
-        let twilioPromise = Promise.resolve();
+        let twilioPromise = Promise.resolve(null);
 
         const twilioSid = process.env.TWILIO_ACCOUNT_SID;
         const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
@@ -65,14 +76,39 @@ export default async function handler(req, res) {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 body: bodyParams.toString()
+            }).then(async (r) => {
+                const data = await r.json();
+                if (!r.ok) {
+                    console.error('Twilio API error status:', r.status, data);
+                } else {
+                    console.log('Twilio SMS sent successfully:', data);
+                }
+                return { status: r.status, ok: r.ok, data };
+            }).catch(err => {
+                console.error('Twilio request failed:', err);
+                return { error: err.message };
             });
         } else {
             console.warn('Could not send SMS: check normalized phone or missing Twilio credentials in environment.');
         }
 
-        const [tgRes, twilioRes] = await Promise.all([telegramPromise, twilioPromise]);
+        const [tgData, twilioData] = await Promise.all([telegramPromise, twilioPromise]);
 
-        return res.status(200).json({ success: true });
+        return res.status(200).json({ 
+            success: true,
+            debug: {
+                telegram: {
+                    configured: !!telegramToken,
+                    chat_id: telegramChatId,
+                    result: tgData
+                },
+                twilio: {
+                    configured: !!(twilioSid && twilioAuthToken),
+                    to: normalizedPhone,
+                    result: twilioData
+                }
+            }
+        });
 
     } catch (error) {
         console.error('Submit API Handler Error:', error);

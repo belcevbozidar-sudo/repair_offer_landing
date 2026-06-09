@@ -106,16 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     description: clientDesc
                 })
             }).then(() => {
-                applicationForm.style.display = 'none';
-                successState.style.display = 'flex';
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
+                window.location.href = 'thank-you.html';
             }).catch(err => {
-                console.error('Fetch error, falling back to success display:', err);
-                applicationForm.style.display = 'none';
-                successState.style.display = 'flex';
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
+                console.error('Fetch error, redirecting to thank-you.html:', err);
+                window.location.href = 'thank-you.html';
             });
         });
     }
