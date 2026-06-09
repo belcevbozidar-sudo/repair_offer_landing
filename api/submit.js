@@ -52,7 +52,7 @@ export default async function handler(req, res) {
             console.warn('Missing Telegram credentials in environment. TELEGRAM_BOT_TOKEN is not set.');
         }
 
-        // 2. Normalize Phone & Send Twilio SMS
+        // 2. Normalize Phone & Send Twilio SMS (using keys set in Vercel Env Variables)
         const normalizedPhone = normalizePhone(phone);
         let twilioPromise = Promise.resolve(null);
 
