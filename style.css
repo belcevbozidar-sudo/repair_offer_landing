@@ -610,7 +610,7 @@ img, svg {
 }
 
 .status-good {
-    color: var(--color-orange);
+    color: var(--color-green);
 }
 
 .comparison-list {
@@ -637,7 +637,7 @@ img, svg {
 }
 
 .icon-good {
-    color: var(--color-orange);
+    color: var(--color-green);
     font-size: 1rem;
     margin-top: 3px;
 }
@@ -650,6 +650,27 @@ img, svg {
     background-color: var(--color-black);
     color: var(--color-bg-secondary);
     position: relative;
+    overflow: hidden;
+}
+
+.offer-section::before {
+    content: "ОФЕРТА";
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15vw;
+    font-weight: 950;
+    color: rgba(255, 255, 255, 0.015);
+    letter-spacing: 20px;
+    z-index: 1;
+    pointer-events: none;
+    font-family: var(--font-heading);
+}
+
+.offer-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 .text-white-section {
@@ -1099,13 +1120,20 @@ img, svg {
     position: relative;
     width: 40px;
     height: 40px;
-    background-color: #2D3748;
+    background-color: transparent;
     color: var(--color-orange);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
+}
+
+.chatbot-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .chatbot-avatar i {

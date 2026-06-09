@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Interactive Chatbot Simulator
     // ==========================================
     const chatMessages = document.getElementById('chat-messages');
-    const optionsContainer = document.getElementById('chat-options-container');
+    let optionsContainer = document.getElementById('chat-options-container');
 
     // Chatbot logic structure
     const chatFlow = {
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bubble.innerHTML = text;
         
         messageDiv.appendChild(bubble);
-        chatMessages.appendChild(messageDiv);
+        chatMessages.insertBefore(messageDiv, optionsContainer);
         
         // Scroll to bottom
         chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bubble.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
         
         indicatorDiv.appendChild(bubble);
-        chatMessages.appendChild(indicatorDiv);
+        chatMessages.insertBefore(indicatorDiv, optionsContainer);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
@@ -341,7 +341,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     Здравейте! Аз съм вашият дигитален асистент. Каква ремонтна услуга ви интересува днес?
                 </div>
             </div>
+            <div class="chat-options" id="chat-options-container"></div>
         `;
+        optionsContainer = document.getElementById('chat-options-container');
         renderOptions([
             { text: "Ремонтни дейности", next: "repairs" },
             { text: "Строителство", next: "build" },
