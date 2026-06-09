@@ -1125,112 +1125,129 @@ img, svg {
 /* ==========================================
    10. Why Us Section (Take-It-Or-Leave-It Box)
    ========================================== */
-.why-us-section {
+.team-section {
     padding: 100px 0;
     background-color: var(--color-bg-secondary);
 }
 
-.why-us-card {
-    background-color: var(--color-bg-primary);
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-bg-tertiary);
-    padding: 56px;
-    box-shadow: var(--box-shadow-md);
+.team-section-header {
+    margin-bottom: 56px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.why-us-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 56px;
-    align-items: center;
-}
-
-.why-us-founders {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--color-bg-secondary);
-    border-radius: var(--border-radius-md);
-    padding: 32px 24px;
-    box-shadow: var(--box-shadow-sm);
-    border: 1px solid var(--color-bg-tertiary);
-    width: 100%;
-}
-
-.founders-images-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    width: 100%;
-    margin-bottom: 24px;
-}
-
-.founder-photo-card {
-    background-color: var(--color-bg-primary);
-    border: 1px solid var(--color-gray-light);
-    border-radius: var(--border-radius-sm);
-    padding: 12px;
-    text-align: center;
-    box-shadow: var(--box-shadow-sm);
-}
-
-.founder-img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 12px;
-}
-
-.founder-role {
+.team-section-badge {
     display: inline-block;
+    color: #3182CE;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 0.65rem;
-    color: var(--color-orange);
-    background-color: var(--color-orange-light);
-    padding: 2px 8px;
-    border-radius: 50px;
-    margin-bottom: 6px;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
     text-transform: uppercase;
 }
 
-.founder-photo-card h5 {
-    font-size: 0.85rem;
+.team-section-title {
+    font-size: 2.75rem;
+    margin-bottom: 20px;
     color: var(--color-black);
-    margin: 0;
+    letter-spacing: -1px;
 }
 
-.founders-meta-box {
-    text-align: center;
-    border-top: 1px solid var(--color-gray-light);
-    padding-top: 16px;
-    width: 100%;
-}
-
-.founders-meta-box h4 {
+.team-section-lead {
     font-size: 1.15rem;
-    color: var(--color-black);
-    margin-bottom: 4px;
-}
-
-.founders-meta-box p {
-    font-size: 0.8rem;
     color: var(--color-gray-dark);
-    font-weight: 600;
-    margin: 0;
+    line-height: 1.6;
 }
 
-.why-us-content {
+.team-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 64px;
+}
+
+.team-card {
+    background-color: var(--color-bg-primary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-light);
+    padding: 32px;
+    box-shadow: var(--box-shadow-sm);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    transition: var(--transition-normal);
 }
 
-.why-us-paragraph {
-    font-size: 1.05rem;
-    color: var(--color-charcoal);
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-md);
+    border-color: var(--color-gray-border);
+}
+
+.team-card-image-wrapper {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 24px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-sm);
+}
+
+.team-card-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+}
+
+.team-card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-card-tag {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+    border-radius: 50px;
     margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.team-card-tag.tag-code {
+    background-color: #EBF8FF;
+    color: #2B6CB0;
+}
+
+.team-card-tag.tag-marketing {
+    background-color: #EBF8FF;
+    color: #2B6CB0;
+}
+
+.team-card-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-black);
+    margin-bottom: 12px;
+}
+
+.team-card-desc {
+    font-size: 0.95rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+}
+
+.team-cta {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .take-it-or-leave-it-quote {
@@ -1246,10 +1263,6 @@ img, svg {
     padding-bottom: 16px;
     padding-right: 16px;
     border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
-}
-
-.why-us-cta {
-    margin-top: 16px;
 }
 
 /* ==========================================
@@ -1714,22 +1727,28 @@ img, svg {
     
     .chatbot-demo-info {
         align-items: center;
-        text-align: center;
     }
     
-    .why-us-grid {
+    .team-cards-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .why-us-founders {
-        max-width: 480px;
-        margin: 0 auto;
-        width: 100%;
+        gap: 32px;
     }
     
     .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Medium Desktop Screens (Header fix) */
+@media (max-width: 1200px) {
+    .trust-badge {
+        display: none;
+    }
+    .main-nav {
+        gap: 20px;
+    }
+    .header-actions {
+        gap: 16px;
     }
 }
 
@@ -1763,13 +1782,8 @@ img, svg {
         grid-template-columns: 1fr;
     }
     
-    .why-us-card {
-        padding: 32px 20px;
-    }
-    
-    .founders-images-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+    .team-card {
+        padding: 24px 16px;
     }
     
     .price-summary-panel {
