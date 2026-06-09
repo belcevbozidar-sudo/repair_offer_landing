@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         }
 
         // 1. Send Telegram Notification
-        const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+        const telegramToken = process.env.TELEGRAM_BOT_TOKEN || '8691287054:AAHMb7f1fbTSxdzKvzRyytuRit-fJqYhI7c';
         const telegramChatId = process.env.TELEGRAM_CHAT_ID || '8625026165';
         
         let telegramPromise = Promise.resolve(null);
