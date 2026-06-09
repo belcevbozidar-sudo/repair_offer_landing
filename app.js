@@ -215,6 +215,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chatbot logic structure
     const chatFlow = {
         // First Choice Responses
+        repairs: {
+            text: "Ремонтните дейности (вътрешни ремонти, покриви и др.) са изключително конкурентен пазар. За да ви намерим добри обекти, е много важно да се разграничите от нискобюджетната конкуренция. Имате ли работещ сайт в момента?",
+            options: [
+                { text: "Нямам сайт (нов бизнес сме)", next: "complete_cta" },
+                { text: "Имам сайт, но не носи клиенти", next: "complete_cta" }
+            ]
+        },
         build: {
             text: "Строителството и грубият строеж са високобюджетни проекти с голяма печалба. Нашата система помага да филтрирате случайните хора и да достигнете до сериозни инвеститори. Готови ли сте да инвестирате рекламен бюджет от поне 400 € (782 лв.) на месец директно към Facebook?",
             options: [
@@ -336,6 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         renderOptions([
+            { text: "Ремонтни дейности", next: "repairs" },
             { text: "Строителство", next: "build" },
             { text: "Соларни инсталации", next: "solar" },
             { text: "Друго", next: "other" }
