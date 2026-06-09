@@ -307,16 +307,20 @@ img, svg {
 }
 
 .hero-container {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 64px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 .tagline {
@@ -405,10 +409,63 @@ img, svg {
 
 .hero-stats {
     display: flex;
-    gap: 40px;
+    justify-content: center;
+    gap: 48px;
     border-top: 1px solid var(--color-gray-light);
     padding-top: 24px;
     width: 100%;
+}
+
+/* Hero Trust Row */
+.hero-trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.hero-trust-avatars {
+    display: flex;
+    align-items: center;
+}
+
+.hero-trust-avatars img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    margin-left: -12px;
+    object-fit: cover;
+    transition: var(--transition-normal);
+}
+
+.hero-trust-avatars img:first-child {
+    margin-left: 0;
+}
+
+.hero-trust-avatars img:hover {
+    transform: translateY(-2px);
+    z-index: 5;
+}
+
+.hero-trust-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.hero-trust-text-wrapper .stars {
+    color: #FFB800;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.hero-trust-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
 }
 
 .stat-item {
@@ -888,6 +945,20 @@ img, svg {
     flex-direction: column;
     gap: 2px;
     max-width: 65%;
+    min-width: 0; /* Fix flex child layout blowout */
+}
+
+@media (max-width: 480px) {
+    .post-cta-bar {
+        padding: 8px 10px;
+    }
+    .btn-fb-cta {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    .post-cta-title {
+        font-size: 0.8rem;
+    }
 }
 
 .post-domain {
@@ -1330,6 +1401,98 @@ img, svg {
 }
 
 /* ==========================================
+   12. FAQ Section
+   ========================================== */
+.faq-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-primary);
+    border-top: 1px solid var(--color-bg-tertiary);
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.faq-item:hover {
+    border-color: var(--color-orange);
+    box-shadow: var(--box-shadow-md);
+}
+
+.faq-question {
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-black);
+    transition: var(--transition-fast);
+    user-select: none;
+}
+
+.faq-question i {
+    font-size: 0.9rem;
+    color: var(--color-gray-dark);
+    transition: transform var(--transition-normal);
+}
+
+.faq-item:hover .faq-question {
+    color: var(--color-orange);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-out, padding 0.35s ease-out;
+    padding: 0 28px;
+    border-top: 1px solid transparent;
+}
+
+.faq-answer p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-gray-dark);
+    margin-bottom: 24px;
+}
+
+/* Active state for accordion */
+.faq-item.active {
+    border-color: var(--color-orange);
+    box-shadow: var(--box-shadow-md);
+}
+
+.faq-item.active .faq-question {
+    color: var(--color-orange);
+    border-bottom: 1px solid var(--color-gray-border);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+    color: var(--color-orange);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding-top: 24px;
+    border-top-color: var(--color-gray-border);
+}
+
+/* ==========================================
    12. Footer CTA Block & Footer
    ========================================== */
 .footer-cta-section {
@@ -1368,24 +1531,80 @@ img, svg {
 .main-footer {
     background-color: var(--color-black);
     color: #718096;
-    padding: 60px 0 40px 0;
+    padding: 80px 0 40px 0;
     border-top: 1px solid #1A1A1A;
-    text-align: center;
 }
 
 .footer-container {
     display: flex;
     flex-direction: column;
+    gap: 0;
+}
+
+.footer-brand-logo {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 0.85;
+    text-transform: lowercase;
+    text-align: left;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+
+.footer-brand-logo .brand-top {
+    color: #4A5568;
+}
+
+.footer-brand-logo .brand-bottom {
+    color: #A0AEC0;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #2D3748;
+    margin: 30px 0;
+}
+
+.footer-bottom-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-copyrights {
+    text-align: left;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.footer-copyrights p {
+    margin: 0 0 6px 0;
+}
+
+.footer-copyrights p:last-child {
+    margin: 0;
+}
+
+.footer-copyrights strong {
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.footer-sub-copyright {
+    color: #4A5568;
+    font-size: 0.8rem;
 }
 
 .footer-links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 32px;
     flex-wrap: wrap;
-    margin: 10px 0;
 }
 
 .footer-links a {
@@ -1398,11 +1617,6 @@ img, svg {
 
 .footer-links a:hover {
     color: var(--color-orange);
-}
-
-.footer-disclaimer {
-    font-style: italic;
-    font-size: 0.8rem;
 }
 
 /* ==========================================
