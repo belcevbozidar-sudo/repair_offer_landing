@@ -930,6 +930,10 @@ img, svg {
     object-fit: cover;
 }
 
+.solar-post-image {
+    object-position: left center;
+}
+
 .post-media-overlay-badge {
     position: absolute;
     top: 12px;
