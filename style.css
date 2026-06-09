@@ -1053,11 +1053,25 @@ img, svg {
     color: var(--color-orange);
     animation: bounceRight 1.5s infinite;
     font-size: 1rem;
+    display: inline-block;
+}
+
+.demo-arrow-hint .arrow-desktop {
+    display: inline;
+}
+
+.demo-arrow-hint .arrow-mobile {
+    display: none;
 }
 
 @keyframes bounceRight {
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(6px); }
+}
+
+@keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
 }
 
 /* Chatbot Widget Simulation Style */
@@ -1957,6 +1971,18 @@ img, svg {
     
     .chatbot-demo-info {
         align-items: center;
+    }
+    
+    .demo-arrow-hint {
+        animation: bounceDown 1.5s infinite;
+    }
+
+    .demo-arrow-hint .arrow-desktop {
+        display: none;
+    }
+
+    .demo-arrow-hint .arrow-mobile {
+        display: inline;
     }
     
     .team-cards-grid {
