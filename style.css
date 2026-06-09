@@ -650,27 +650,6 @@ img, svg {
     background-color: var(--color-black);
     color: var(--color-bg-secondary);
     position: relative;
-    overflow: hidden;
-}
-
-.offer-section::before {
-    content: "ОФЕРТА";
-    position: absolute;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 15vw;
-    font-weight: 950;
-    color: rgba(255, 255, 255, 0.015);
-    letter-spacing: 20px;
-    z-index: 1;
-    pointer-events: none;
-    font-family: var(--font-heading);
-}
-
-.offer-section .container {
-    position: relative;
-    z-index: 2;
 }
 
 .text-white-section {
