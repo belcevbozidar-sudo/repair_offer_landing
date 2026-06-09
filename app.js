@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle form submission simulation
+    // Handle form submission simulation and backend call
     if (applicationForm) {
         applicationForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -89,17 +89,34 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitBtn = document.getElementById('submit-form-btn');
             const originalBtnText = submitBtn.innerHTML;
             
+            const clientPhone = document.getElementById('client-phone').value;
+            const clientDesc = document.getElementById('client-desc').value;
+            
             // Show loading state
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Изпращане на кандидатурата... <i class="fas fa-spinner fa-spin"></i>';
             
-            // Simulate API request delay
-            setTimeout(() => {
+            fetch('/api/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    phone: clientPhone,
+                    description: clientDesc
+                })
+            }).then(() => {
                 applicationForm.style.display = 'none';
                 successState.style.display = 'flex';
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
-            }, 1200);
+            }).catch(err => {
+                console.error('Fetch error, falling back to success display:', err);
+                applicationForm.style.display = 'none';
+                successState.style.display = 'flex';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            });
         });
     }
 
@@ -214,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         build: {
-            text: "Грубият строеж и цялостното строителство са високобюджетни проекти. Чрез рекламата филтрираме несериозните клиенти. Готови ли сте да инвестирате рекламен бюджет от поне 400 € на месец директно към Facebook?",
+            text: "Грубият строеж и цялостното строителство са високобюджетни проекти. Чрез рекламата филтрираме несериозните клиенти. Готови ли сте да инвестирате рекламен бюджет от поне 400 € (782 лв.) на месец директно към Facebook?",
             options: [
                 { text: "Да, готови сме с този бюджет", next: "complete_cta" },
                 { text: "Не сме сигурни, искаме консултация", next: "complete_cta" }

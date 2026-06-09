@@ -231,7 +231,7 @@ img, svg {
 }
 
 .header-logo {
-    height: 38px;
+    height: 54px;
     width: auto;
     max-width: 100%;
 }
@@ -846,6 +846,7 @@ img, svg {
     display: flex;
     flex-direction: column;
     transition: var(--transition-normal);
+    min-width: 0; /* Prevent CSS Grid blowout on mobile */
 }
 
 .facebook-post:hover {
@@ -949,11 +950,24 @@ img, svg {
 }
 
 @media (max-width: 480px) {
+    .facebook-post {
+        padding: 12px;
+    }
     .post-cta-bar {
         padding: 8px 10px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    .post-cta-info {
+        max-width: 100% !important;
+        align-items: center;
+        text-align: center;
     }
     .btn-fb-cta {
-        padding: 6px 10px;
+        width: 100%;
+        text-align: center;
+        padding: 8px;
         font-size: 0.75rem;
     }
     .post-cta-title {
@@ -1998,6 +2012,11 @@ img, svg {
     
     .team-card {
         padding: 24px 16px;
+    }
+    
+    .team-card-image-wrapper {
+        max-width: 220px;
+        margin: 0 auto 24px auto;
     }
     
     .price-summary-panel {
