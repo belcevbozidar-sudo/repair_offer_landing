@@ -266,15 +266,22 @@ img, svg {
     gap: 16px;
 }
 
+.stars-3d {
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
 .trust-badge {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.trust-badge .stars {
-    color: #FBBF24;
-    font-size: 0.85rem;
+.trust-badge .header-stars {
+    width: 76px;
+    height: 19px;
+    margin-bottom: 2px;
 }
 
 .trust-badge .badge-text {
@@ -416,6 +423,30 @@ img, svg {
     margin-bottom: 48px;
 }
 
+.hero-cta-image-link {
+    display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.hero-cta-image-link:hover {
+    transform: translateY(-3px) scale(1.03);
+    filter: brightness(1.05);
+}
+
+.hero-cta-image-link:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.hero-cta-image-btn {
+    display: block;
+    width: 310px;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
 .hero-stats {
     display: flex;
     justify-content: center;
@@ -465,10 +496,10 @@ img, svg {
     text-align: left;
 }
 
-.hero-trust-text-wrapper .stars {
-    color: #FFB800;
-    font-size: 0.9rem;
-    margin-bottom: 2px;
+.hero-trust-text-wrapper .hero-stars {
+    width: 92px;
+    height: 23px;
+    margin-bottom: 4px;
 }
 
 .hero-trust-text {
@@ -1436,9 +1467,14 @@ img, svg {
 }
 
 .testimonial-rating {
-    color: #FBBF24;
-    font-size: 0.9rem;
     margin-bottom: 16px;
+    line-height: 1;
+}
+
+.testimonial-rating .testimonial-stars {
+    width: 92px;
+    height: 23px;
+    display: block;
 }
 
 .testimonial-text {
@@ -1956,6 +1992,7 @@ img, svg {
     
     .hero-actions {
         justify-content: center;
+        align-items: center;
         width: 100%;
     }
     
@@ -2083,6 +2120,7 @@ img, svg {
     .hero-actions {
         flex-direction: column;
         gap: 12px;
+        align-items: center;
     }
     
     .btn-large {
