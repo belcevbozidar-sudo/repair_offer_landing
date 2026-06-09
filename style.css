@@ -716,8 +716,8 @@ img, svg {
 }
 
 .offer-icon-wrapper {
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -725,9 +725,28 @@ img, svg {
 }
 
 .offer-icon-img {
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     object-fit: contain;
+}
+
+.checkmark-img-title {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.checkmark-img-list {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.chatbot-demo-img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
 }
 
 .offer-card h3 {
