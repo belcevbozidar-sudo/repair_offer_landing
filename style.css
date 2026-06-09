@@ -171,6 +171,9 @@ img, svg {
     padding: 6px 16px;
     border-radius: 50px;
     margin-bottom: 16px;
+}.section-badge.badge-large {
+    font-size: 0.95rem;
+    padding: 8px 20px;
 }
 
 .section-badge.badge-orange {
@@ -646,7 +649,7 @@ img, svg {
    7. Offer Section
    ========================================== */
 .offer-section {
-    padding: 100px 0;
+    padding: 50px 0 100px 0;
     background-color: var(--color-black);
     color: var(--color-bg-secondary);
     position: relative;
