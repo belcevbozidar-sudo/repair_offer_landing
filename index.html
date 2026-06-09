@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Премиум студио | Уеб Дизайн и Клиенти за Ремонтни Бизнеси</title>
+    <meta name="description" content="Пълно уеб и маркетинг решение за строителни и ремонтни бизнеси от Премиум студио. Професионален сайт, поддръжка и Meta реклами.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo-wrapper">
+                <img src="assets/logo.png" alt="Премиум студио лого" class="header-logo">
+            </a>
+            <nav class="main-nav">
+                <a href="#problem" class="nav-link">Къде е проблемът?</a>
+                <a href="#offer" class="nav-link">Офертата</a>
+                <a href="#facebook-ads" class="nav-link">Рекламите</a>
+                <a href="#chatbot-demo" class="nav-link">Демо на чатбот</a>
+                <a href="#why-us" class="nav-link">Кои сме ние?</a>
+            </nav>
+            <div class="header-actions">
+                <div class="trust-badge">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="badge-text">Над 40 ремонтни бизнеса ни се довериха</span>
+                </div>
+                <button class="btn btn-primary trigger-popup" id="nav-cta-btn">Кандидатствай</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <nav class="mobile-nav">
+            <a href="#problem" class="mobile-nav-link">Къде е проблемът?</a>
+            <a href="#offer" class="mobile-nav-link">Офертата</a>
+            <a href="#facebook-ads" class="mobile-nav-link">Рекламите</a>
+            <a href="#chatbot-demo" class="mobile-nav-link">Демо на чатбот</a>
+            <a href="#why-us" class="mobile-nav-link">Кои сме ние?</a>
+            <button class="btn btn-primary trigger-popup mobile-cta-btn">Кандидатствай сега</button>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="tagline">
+                    <span class="pulse-dot"></span> Само за сериозни ремонтни и строителни фирми
+                </div>
+                <h1 class="hero-title">
+                    Сайтът ви изглежда <span class="highlight">точно като</span> на конкурентите ви.
+                </h1>
+                <p class="hero-subtitle">
+                    Затова клиентите ви избират по най-ниската цена, а не по качеството. Време е да се разграничите и да напълните графика си с обекти за месеци напред с Премиум студио.
+                </p>
+                <div class="hero-offer-brief">
+                    <strong>Цялостно решение за 890 €:</strong> Професионален сайт + 1 година безплатен хостинг/поддръжка + 1 месец БЕЗПЛАТНО управление на Meta реклами за клиенти.
+                </div>
+                <div class="hero-actions">
+                    <a href="#problem" class="btn btn-primary btn-large" id="hero-primary-cta-btn">
+                        Виж как работи <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Партньори в BG</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5.0</span>
+                        <span class="stat-label">Оценка в Google</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Авторски код</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="assets/hero_renovation.png" alt="Луксозен интериорен ремонт от Премиум студио" class="hero-main-img">
+                    <div class="hero-image-badge">
+                        <i class="fas fa-check-circle text-orange"></i>
+                        <span>Гарантиран ръст на обектите</span>
+                    </div>
+                    <div class="glow-bg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <div class="section-badge">Горчивата истина</div>
+            <h2 class="section-title text-center">
+                Защо 95% от сайтовете за ремонтни услуги са хвърлени пари на вятъра?
+            </h2>
+            <p class="section-lead text-center">
+                Когато клиент влезе в сегашния ви сайт (или в сайтовете на конкурентите ви), той вижда едни и същи шаблонни текстове, едни и същи стокови снимки на инструменти и абсолютно нищо уникално.
+            </p>
+            
+            <div class="comparison-grid">
+                <!-- Generic Site Card -->
+                <div class="comparison-card bad">
+                    <div class="card-status status-bad">
+                        <i class="fas fa-times-circle"></i> Сайтът на конкурентите ви
+                    </div>
+                    <ul class="comparison-list">
+                        <li>
+                            <i class="fas fa-circle-xmark icon-bad"></i>
+                            <span><strong>Шаблонен дизайн:</strong> Изглежда евтин и неотличим от останалите 10 фирми.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-xmark icon-bad"></i>
+                            <span><strong>Снимки от Google:</strong> Клиентите веднага разпознават фалшивите стокови снимки.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-xmark icon-bad"></i>
+                            <span><strong>Пасивност:</strong> Просто списък с услуги и телефон, който никой не кликва.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-xmark icon-bad"></i>
+                            <span><strong>Липса на доверие:</strong> Без истински лица, без ясни доказателства за завършени проекти.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-xmark icon-bad"></i>
+                            <span><strong>Без реклама:</strong> Стои просто така в мрежата без никой да го посещава.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Our Solution Card -->
+                <div class="comparison-card good">
+                    <div class="card-status status-good">
+                        <i class="fas fa-check-circle"></i> Вашият нов сайт от Премиум студио
+                    </div>
+                    <ul class="comparison-list">
+                        <li>
+                            <i class="fas fa-circle-check icon-good"></i>
+                            <span><strong>Индивидуален дизайн:</strong> Ръчно разработен уебсайт, съобразен с вашия бранд.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check icon-good"></i>
+                            <span><strong>Реални проекти и доверие:</strong> Фокус върху вашите реални завършени обекти и отзиви.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check icon-good"></i>
+                            <span><strong>Интерактивен чатбот асистент:</strong> Помага на клиентите бързо да изберат точната услуга.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check icon-good"></i>
+                            <span><strong>Активни Meta Реклами:</strong> 1 месец пълно управление за привличане на реални клиенти.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-circle-check icon-good"></i>
+                            <span><strong>Пълна техническа грижа:</strong> Хостинг, домейн и поддръжка безплатно за първата година.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Offer Section -->
+    <section id="offer" class="offer-section">
+        <div class="container">
+            <div class="section-badge badge-orange">Цялостният пакет</div>
+            <h2 class="section-title text-center text-white-section">
+                Какво точно включва офертата от 890 €?
+            </h2>
+            <p class="section-lead text-center text-white-lead">
+                Без скрити такси. Получавате пълна система за привличане на клиенти от Премиум студио, а не просто "красив" сайт.
+            </p>
+
+            <div class="offer-grid">
+                <!-- Feature 1 -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Авторски Уебсайт</h3>
+                    <p>Създаден специално за вас от нас двамата. Без готови платформи, които се чупят и бавят. Изключително бърз и оптимизиран за телефони.</p>
+                    <span class="value-tag">Реална стойност: 1200 €</span>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="offer-card featured">
+                    <div class="featured-badge">НАЙ-ВАЖНОТО</div>
+                    <div class="offer-icon-wrapper">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>1 Месец Meta Реклами</h3>
+                    <p>Ние поемаме безплатно управлението на рекламите ви във Facebook и Instagram. Създаваме банери, тестваме, оптимизираме. <em>Препоръчителен рекламен бюджет към Facebook: минимум 400 € (плаща се от вас директно към FB).</em></p>
+                    <span class="value-tag text-orange">Реална стойност: 450 €</span>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>365 Дни Хостинг и Домейн</h3>
+                    <p>Пълно техническо обслужване и безплатен домейн за първата година. След 365 дни, ако изберете да продължите с нас, цената е <strong>само 150 € на година</strong>.</p>
+                    <span class="value-tag">Реална стойност: 300 €</span>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Чатбот Интеграция</h3>
+                    <p>Интерактивен чатбот асистент на сайта, който помага на посетителите да се ориентират и да изберат желаната ремонтна услуга бързо и лесно.</p>
+                    <span class="value-tag">Реална стойност: 250 €</span>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fas fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3>Първоначално SEO</h3>
+                    <p>Базова оптимизация на сайта, за да бъде лесно намиран в Google при търсене на ремонтни услуги във вашия град и регион.</p>
+                    <span class="value-tag">Реална стойност: 200 €</span>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="offer-card">
+                    <div class="offer-icon-wrapper">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>365 Дни Поддръжка</h3>
+                    <p>Нуждаете се от промяна на текст, добавяне на нова снимка на завършен обект или телефонен номер? Ние реагираме в рамките на няколко часа.</p>
+                    <span class="value-tag">Реална стойност: 300 €</span>
+                </div>
+            </div>
+
+            <!-- Price Summary Panel -->
+            <div class="price-summary-panel">
+                <div class="price-details">
+                    <span class="price-old">Обща стойност на услугите: 2,700 €</span>
+                    <div class="price-current-wrapper">
+                        <span class="price-label">Вашата цена:</span>
+                        <span class="price-number">890 €</span>
+                        <span class="price-period">за всичко</span>
+                    </div>
+                </div>
+                <div class="price-cta">
+                    <button class="btn btn-primary btn-large trigger-popup" id="price-card-cta">
+                        Кандидатствай за офертата <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <p class="cta-subtext"><i class="fas fa-lock"></i> Фиксирана цена без скрити или месечни такси</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facebook Ads Simulation Section -->
+    <section id="facebook-ads" class="facebook-ads-section">
+        <div class="container">
+            <div class="section-badge">Маркетинг симулация</div>
+            <h2 class="section-title text-center">Как изглеждат вашите реклами във Facebook?</h2>
+            <p class="section-lead text-center">
+                Ние създаваме професионални банери с висок контраст, пишем убедителни текстове и настройваме таргетирането така, че рекламата да се показва само на хора, търсещи ремонт в момента. Ето пример за наши рекламни криейтиви:
+            </p>
+            
+            <div class="ads-container">
+                <!-- Facebook Feed Post Simulator 1 (Roofing/Construction) -->
+                <div class="facebook-post">
+                    <div class="post-header">
+                        <img src="assets/logo.png" alt="Премиум студио" class="post-avatar">
+                        <div class="post-meta">
+                            <span class="post-author-name">Ремонти София (Премиум студио)</span>
+                            <span class="post-time">Реклама • <i class="fas fa-globe-americas"></i></span>
+                        </div>
+                        <i class="fas fa-ellipsis-h post-more-btn"></i>
+                    </div>
+                    <div class="post-text">
+                        🏠 Покривът ви тече или се нуждае от спешен ремонт? Не чакайте следващия дъжд да съсипе дома ви. 
+                        <br><br>
+                        Ние сме професионална бригада с над 15 години опит. Извършваме цялостен ремонт на покриви, хидроизолация и тенекеджийски услуги с пълна гаранция и договор. 
+                        <br><br>
+                        👉 Кликнете по-долу, преминете през краткия ни асистент и получете ориентировъчна цена за вашия покрив още днес!
+                    </div>
+                    <div class="post-media">
+                        <img src="assets/hero_architecture.png" alt="Пример за рекламен банер - строителство" class="post-image">
+                        <div class="post-media-overlay-badge">БЕЗПЛАТЕН ОГЛЕД</div>
+                    </div>
+                    <div class="post-cta-bar">
+                        <div class="post-cta-info">
+                            <span class="post-domain">PREMIUM-STUDIO.BG</span>
+                            <span class="post-cta-title">Ремонт на Покриви с Гаранция - Разбери цена</span>
+                        </div>
+                        <button class="btn-fb-cta trigger-popup">Научи повече</button>
+                    </div>
+                </div>
+
+                <!-- Facebook Feed Post Simulator 2 (Interior remodeling) -->
+                <div class="facebook-post">
+                    <div class="post-header">
+                        <img src="assets/logo.png" alt="Премиум студио" class="post-avatar">
+                        <div class="post-meta">
+                            <span class="post-author-name">Лукс Ремонти (Премиум студио)</span>
+                            <span class="post-time">Реклама • <i class="fas fa-globe-americas"></i></span>
+                        </div>
+                        <i class="fas fa-ellipsis-h post-more-btn"></i>
+                    </div>
+                    <div class="post-text">
+                        ✨ Мечтаете за перфектния дом, но нямате време да се занимавате с майстори? 
+                        <br><br>
+                        Ние от <b>Премиум студио</b> проектираме и изпълняваме цялостни вътрешни ремонти до ключ - гипскартон, фини шпакловки, модерно боядисване и облицовки. Работим чисти, бързо и с договор. 
+                        <br><br>
+                        ⚠️ Графикът ни за сезона се запълва бързо. Проверете свободните ни дати и заявете безплатна оферта:
+                    </div>
+                    <div class="post-media">
+                        <img src="assets/renovation_result.png" alt="Пример за рекламен банер - интериор" class="post-image">
+                        <div class="post-media-overlay-badge">10 Г. ГАРАНЦИЯ</div>
+                    </div>
+                    <div class="post-cta-bar">
+                        <div class="post-cta-info">
+                            <span class="post-domain">PREMIUM-STUDIO.BG</span>
+                            <span class="post-cta-title">Цялостни Вътрешни Ремонти до Ключ</span>
+                        </div>
+                        <button class="btn-fb-cta trigger-popup">Изпрати запитване</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Demo Section -->
+    <section id="chatbot-demo" class="chatbot-demo-section">
+        <div class="container">
+            <div class="chatbot-demo-grid">
+                <div class="chatbot-demo-info">
+                    <div class="section-badge">Демонстрация на живо</div>
+                    <h2 class="section-title">
+                        Как чатботът превръща посетителите в запитвания?
+                    </h2>
+                    <p class="section-lead">
+                        Повечето хора не обичат да попълват дълги и сложни форми за контакт. Нашият чатбот превежда потребителя стъпка по стъпка през лесни избори, филтрира несериозните клиенти и накрая ги приканва да оставят контакт.
+                    </p>
+                    <div class="features-list-inline">
+                        <div class="feature-inline-item">
+                            <i class="fas fa-bolt text-orange"></i> <span>Интерактивно преживяване</span>
+                        </div>
+                        <div class="feature-inline-item">
+                            <i class="fas fa-filter text-orange"></i> <span>Филтрира несериозни запитвания</span>
+                        </div>
+                        <div class="feature-inline-item">
+                            <i class="fas fa-mobile-alt text-orange"></i> <span>Работи отлично на мобилни телефони</span>
+                        </div>
+                    </div>
+                    <div class="demo-arrow-hint">
+                        <span>Изпробвайте го вдясно още сега &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Chatbot Widget Simulation -->
+                <div class="chatbot-widget">
+                    <div class="chatbot-widget-header">
+                        <div class="chatbot-avatar">
+                            <i class="fas fa-robot"></i>
+                            <span class="status-online"></span>
+                        </div>
+                        <div class="chatbot-info">
+                            <h4>Ремонтен Асистент</h4>
+                            <p>Онлайн • Отговаря веднага</p>
+                        </div>
+                    </div>
+                    <div class="chatbot-widget-body" id="chat-messages">
+                        <!-- Message 1 from bot -->
+                        <div class="chat-message bot">
+                            <div class="message-bubble">
+                                Здравейте! Аз съм вашият дигитален асистент. Каква ремонтна услуга ви интересува днес?
+                            </div>
+                        </div>
+                        
+                        <!-- Initial Options -->
+                        <div class="chat-options" id="chat-options-container">
+                            <button class="chat-option-btn" data-next="roof">Ремонт на покриви</button>
+                            <button class="chat-option-btn" data-next="interior">Вътрешни ремонти (боя, гипскартон)</button>
+                            <button class="chat-option-btn" data-next="build">Цялостно строителство / груб строеж</button>
+                            <button class="chat-option-btn" data-next="other">Друго</button>
+                        </div>
+                    </div>
+                    <div class="chatbot-widget-footer">
+                        <span class="footer-note">Интерактивно демо • Кликнете бутоните по-горе</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us (Take-it-or-leave-it copy) -->
+    <section id="why-us" class="why-us-section">
+        <div class="container">
+            <div class="why-us-card">
+                <div class="why-us-grid">
+                    <div class="why-us-founders">
+                        <div class="founders-images-grid">
+                            <div class="founder-photo-card">
+                                <img src="assets/bozhidar.png" alt="Божидар Иванов" class="founder-img">
+                                <span class="founder-role">Код & Дизайн</span>
+                                <h5>Божидар Иванов</h5>
+                            </div>
+                            <div class="founder-photo-card">
+                                <img src="assets/kaloyan.png" alt="Калоян Димитров" class="founder-img">
+                                <span class="founder-role">Маркетинг & Реклама</span>
+                                <h5>Калоян Димитров</h5>
+                            </div>
+                        </div>
+                        <div class="founders-meta-box">
+                            <h4>Премиум студио</h4>
+                            <p>Божидар Иванов и Калоян Димитров</p>
+                        </div>
+                    </div>
+                    
+                    <div class="why-us-content">
+                        <div class="section-badge badge-black">Кои сме ние и защо ни пука?</div>
+                        <h2 class="section-title">
+                            Работим само с 2 нови бизнеса на месец. Без изключения.
+                        </h2>
+                        <p class="why-us-paragraph">
+                            Ние не сме голяма уеб агенция с десетки стажанти и "мениджъри на акаунти", които си прехвърлят отговорността. <strong>Всичко правим ние двамата.</strong> Божидар проектира и кодира вашия сайт ръчно, а Калоян създава рекламите и следи бюджета ви всеки ден.
+                        </p>
+                        <p class="why-us-paragraph">
+                            Тъй като работим изключително детайлно и лично, времето ни е силно ограничено. Вече поддържаме над 40 ремонтни бизнеса в България и нямаме нужда да продаваме на всяка цена. 
+                        </p>
+                        <blockquote class="take-it-or-leave-it-quote">
+                            "Ако търсите най-евтиния възможен сайт за 200 лева, който да стои неизползваем в мрежата – моля ви, не ни пишете. Не искаме да си губим времето взаимно. Търсим само сериозни партньори, готови да инвестират бюджет за реклама (мин. 400 €) и решени да разширят бизнеса си."
+                        </blockquote>
+                        <div class="why-us-cta">
+                            <button class="btn btn-primary trigger-popup" id="why-us-cta-btn">Кандидатствай, ако си сериозен</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title text-center">Какво казват колегите от бранша</h2>
+            <p class="section-lead text-center">Над 40 ремонтни бизнеса в България вече работят по нашата система.</p>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Предишният ни сайт беше направен от познат и не носеше никакви клиенти. Когато момчетата пуснаха новия сайт и рекламите, телефонът започна да звъни още на третия ден. Графикът ни за покриви е пълен за следващите 3 месеца!"
+                    </p>
+                    <div class="testimonial-user">
+                        <strong>Георги Тодоров</strong>
+                        <span>"Покриви Тодоров" ЕООД, гр. София</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Хареса ми това, че не ми обещаваха планини от злато, а ми казаха директно какво трябва да се направи. Чатботът на сайта спестява много време – хората вече знаят какво искат преди изобщо да ми звъннат."
+                    </p>
+                    <div class="testimonial-user">
+                        <strong>Радослав Василев</strong>
+                        <span>"Василев Билд" (вътрешни ремонти), гр. Пловдив</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Изключително точни. Хостингът и поддръжката наистина са безплатни и когато искам да сменя някоя снимка в галерията, Божидар я качва веднага. Силно препоръчвам!"
+                    </p>
+                    <div class="testimonial-user">
+                        <strong>Инж. Димитър Петров</strong>
+                        <span>"Кей Джи Строй", гр. Варна</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA Block -->
+    <section class="footer-cta-section">
+        <div class="container text-center">
+            <h2>Имате ли готовност за реални резултати?</h2>
+            <p>Не губете време с евтини шаблони. Нека изградим система, която работи за вас денонощно.</p>
+            <div class="cta-box">
+                <button class="btn btn-primary btn-large trigger-popup" id="footer-main-cta">Кандидатствай за проект сега</button>
+                <div class="limited-spots">
+                    <i class="fas fa-calendar-check text-orange"></i> Остава само 1 свободно място за този месец
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Премиум студио. Всички права запазени.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика за поверителност</a>
+                <a href="terms.html">Общи условия</a>
+                <a href="cookies.html">Бисквитки</a>
+            </div>
+            <p class="footer-disclaimer">Уеб дизайн, поддръжка и Meta реклами за ремонтния бранш от Премиум студио.</p>
+        </div>
+    </footer>
+
+    <!-- Popup Contact Form Modal -->
+    <div class="modal-overlay" id="contact-modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="close-modal-btn" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h3>Кандидатстване за Уебсайт и Реклама</h3>
+                <p>Попълнете тези две полета и ние ще разгледаме бизнеса ви в рамките на 24 часа.</p>
+            </div>
+            
+            <!-- Dynamic State Forms -->
+            <form class="modal-form" id="application-form">
+                <div class="form-group">
+                    <label for="client-phone">Телефон за връзка *</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone-alt input-icon"></i>
+                        <input type="tel" id="client-phone" name="phone" placeholder="Например: 0888 123 456" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="client-desc">Подробно описание на вашия бизнес *</label>
+                    <textarea id="client-desc" name="description" rows="5" placeholder="Например: Предлагаме ремонт на покриви и хидроизолация в София и областта. Имаме бригада от 4 души. Имаме готовност за рекламен бюджет от 400 € на месец..." required></textarea>
+                </div>
+                
+                <div class="form-disclaimer">
+                    <i class="fas fa-info-circle text-orange"></i> Изпращането на тази форма не ви ангажира с плащане. Ние ще се свържем с вас само ако преценим, че можем да ви доставим реални клиенти.
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full" id="submit-form-btn">
+                    Изпрати кандидатурата <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+
+            <!-- Success State (Hidden by default) -->
+            <div class="modal-success-state" id="modal-success-msg">
+                <div class="success-icon-wrapper">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Благодарим ви за кандидатурата!</h3>
+                <p>
+                    Формата беше изпратена успешно. Божидар или Калоян ще се свържат с вас на посочения телефонен номер в рамките на 24 часа (обикновено по-рано), за да обсъдим детайлите.
+                </p>
+                <button class="btn btn-secondary btn-full" id="success-close-btn">Затвори</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript code -->
+    <script src="app.js"></script>
+</body>
+</html>

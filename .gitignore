@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+*.log
+.system_generated/
+.gemini/
+*.tmp
+node_modules/
