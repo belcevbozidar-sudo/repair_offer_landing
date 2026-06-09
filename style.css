@@ -423,29 +423,7 @@ img, svg {
     margin-bottom: 48px;
 }
 
-.hero-cta-image-link {
-    display: inline-block;
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease;
-    text-decoration: none;
-    line-height: 1;
-}
 
-.hero-cta-image-link:hover {
-    transform: translateY(-3px) scale(1.03);
-    filter: brightness(1.05);
-}
-
-.hero-cta-image-link:active {
-    transform: translateY(-1px) scale(0.98);
-}
-
-.hero-cta-image-btn {
-    display: block;
-    width: 310px;
-    max-width: 100%;
-    height: auto;
-    cursor: pointer;
-}
 
 .hero-stats {
     display: flex;
@@ -768,6 +746,19 @@ img, svg {
 }
 
 .checkmark-img-list {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.crossmark-img-title {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.crossmark-img-list {
     width: 20px;
     height: 20px;
     margin-top: 2px;
@@ -1992,7 +1983,6 @@ img, svg {
     
     .hero-actions {
         justify-content: center;
-        align-items: center;
         width: 100%;
     }
     
@@ -2120,7 +2110,6 @@ img, svg {
     .hero-actions {
         flex-direction: column;
         gap: 12px;
-        align-items: center;
     }
     
     .btn-large {
