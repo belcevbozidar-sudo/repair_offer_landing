@@ -2282,23 +2282,26 @@ img, svg {
 
 #rotating-word-wrapper {
   display: inline-block;
-  min-width: 320px;
-  text-align: center;
+  min-width: 450px;
+  text-align: left;
   vertical-align: bottom;
   overflow: hidden;
   height: 1.2em;
   position: relative;
 }
 
-@media (max-width: 768px) {
-  #rotating-word-wrapper {
-    min-width: 52vw;
-  }
+#rotating-word {
+  display: inline-block;
+  color: #60A5FA;
+  font-style: italic;
+  position: absolute;
+  left: 0;
+  text-align: left;
 }
 
 @media (max-width: 480px) {
   #rotating-word-wrapper {
-    min-width: 62vw;
+    min-width: 340px;
   }
 }
 
