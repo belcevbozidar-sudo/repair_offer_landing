@@ -2282,7 +2282,7 @@ img, svg {
 
 #rotating-word-wrapper {
   display: inline-block;
-  min-width: 450px;
+  min-width: 420px;
   text-align: left;
   vertical-align: bottom;
   overflow: hidden;
@@ -2297,6 +2297,16 @@ img, svg {
   position: absolute;
   left: 0;
   text-align: left;
+}
+
+.desktop-only {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
