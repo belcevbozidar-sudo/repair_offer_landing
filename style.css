@@ -6,16 +6,16 @@
 :root {
     /* Color Palette */
     --color-bg-primary: #FFFFFF;
-    --color-bg-secondary: #F8F9FA;
+    --color-bg-secondary: #F9FAFB;
     --color-bg-tertiary: #F1F3F5;
     
-    --color-orange: #FF6B00;
-    --color-orange-hover: #E05E00;
-    --color-orange-light: #FFF0E6;
-    --color-orange-glow: rgba(255, 107, 0, 0.15);
+    --color-orange: #2563EB;
+    --color-orange-hover: #1E40AF;
+    --color-orange-light: #EFF6FF;
+    --color-orange-glow: rgba(37, 99, 235, 0.15);
     
-    --color-black: #111111;
-    --color-charcoal: #1F2937;
+    --color-black: #0D1B2A;
+    --color-charcoal: #374151;
     --color-gray-dark: #4B5563;
     --color-gray-light: #E5E7EB;
     --color-gray-border: #D1D5DB;
@@ -24,6 +24,7 @@
     --color-green-light: #ECFDF5;
     --color-red: #EF4444;
     --color-red-light: #FEF2F2;
+    --color-white: #FFFFFF;
     
     /* Fonts */
     --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -37,10 +38,12 @@
     --border-radius-sm: 8px;
     --border-radius-md: 16px;
     --border-radius-lg: 24px;
+    
+    /* Shadows */
     --box-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     --box-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
     --box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-    --box-shadow-orange: 0 10px 20px -5px rgba(255, 107, 0, 0.3);
+    --box-shadow-orange: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
 }
 
 /* ==========================================
@@ -125,14 +128,14 @@ img, svg {
 
 .btn-primary {
     background-color: var(--color-orange);
-    color: var(--color-bg-primary);
+    color: #FFFFFF;
     box-shadow: var(--box-shadow-orange);
 }
 
 .btn-primary:hover {
     background-color: var(--color-orange-hover);
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px -5px rgba(255, 107, 0, 0.45);
+    box-shadow: 0 12px 24px -5px rgba(37, 99, 235, 0.45);
 }
 
 .btn-primary:active {
@@ -165,8 +168,8 @@ img, svg {
 
 .section-badge {
     display: inline-block;
-    background-color: var(--color-orange-light);
-    color: var(--color-orange);
+    background-color: var(--color-orange);
+    color: #FFFFFF;
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.8rem;
@@ -181,8 +184,8 @@ img, svg {
 }
 
 .section-badge.badge-orange {
-    background-color: rgba(255, 107, 0, 0.2);
-    color: #FFA366;
+    background-color: var(--color-orange);
+    color: #FFFFFF;
 }
 
 .section-badge.badge-black {
@@ -215,13 +218,13 @@ img, svg {
    4. Header & Navigation
    ========================================== */
 .main-header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(13, 27, 42, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid var(--color-bg-tertiary);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.25);
     transition: var(--transition-normal);
 }
 
@@ -252,7 +255,7 @@ img, svg {
     font-family: var(--font-heading);
     font-weight: 500;
     font-size: 0.95rem;
-    color: var(--color-charcoal);
+    color: #FFFFFF;
     white-space: nowrap;
 }
 
@@ -306,7 +309,7 @@ img, svg {
 .mobile-menu-toggle span {
     width: 100%;
     height: 2px;
-    background-color: var(--color-black);
+    background-color: #FFFFFF;
     border-radius: 2px;
     transition: var(--transition-normal);
 }
@@ -316,10 +319,11 @@ img, svg {
    ========================================== */
 .hero-section {
     padding: 40px 0 100px 0;
-    background-color: var(--color-bg-secondary);
-    border-bottom: 1px solid var(--color-bg-tertiary);
+    background-color: #0D1B2A;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.25);
     overflow: hidden;
     position: relative;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .hero-container {
@@ -364,15 +368,15 @@ img, svg {
 @keyframes pulseGlow {
     0% {
         transform: scale(0.9);
-        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
     }
     70% {
         transform: scale(1.1);
-        box-shadow: 0 0 0 6px rgba(255, 107, 0, 0);
+        box-shadow: 0 0 0 6px rgba(37, 99, 235, 0);
     }
     100% {
         transform: scale(0.9);
-        box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
     }
 }
 
@@ -381,6 +385,7 @@ img, svg {
     line-height: 1.15;
     margin-bottom: 20px;
     letter-spacing: -1.5px;
+    color: #FFFFFF;
 }
 
 .hero-title .highlight {
@@ -402,7 +407,7 @@ img, svg {
 
 .hero-subtitle {
     font-size: 1.15rem;
-    color: var(--color-gray-dark);
+    color: rgba(255, 255, 255, 0.75);
     margin-bottom: 24px;
 }
 
@@ -663,7 +668,7 @@ img, svg {
 .offer-section {
     padding: 35px 0 80px 0;
     background-color: var(--color-black);
-    color: var(--color-bg-secondary);
+    color: rgba(255, 255, 255, 0.75);
     position: relative;
 }
 
@@ -687,8 +692,8 @@ img, svg {
 }
 
 .offer-card {
-    background-color: #1A1A1A;
-    border: 1px solid #2A2A2A;
+    background-color: #0D1B2A;
+    border: 1px solid rgba(37, 99, 235, 0.25);
     border-radius: var(--border-radius-md);
     padding: 36px;
     display: flex;
@@ -700,13 +705,13 @@ img, svg {
 
 .offer-card:hover {
     transform: translateY(-6px);
-    border-color: #444;
+    border-color: rgba(37, 99, 235, 0.4);
     box-shadow: 0 15px 30px rgba(0,0,0,0.5);
 }
 
 .offer-card.featured {
-    border: 2px solid var(--color-orange);
-    background-color: #221B16;
+    border: 2.5px solid var(--color-orange);
+    background-color: #0D1B2A;
 }
 
 .featured-badge {
@@ -777,7 +782,7 @@ img, svg {
 }
 
 .offer-card p {
-    color: #A0AEC0;
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 24px;
@@ -1591,19 +1596,20 @@ img, svg {
    ========================================== */
 .footer-cta-section {
     padding: 100px 0;
-    background-color: var(--color-bg-secondary);
-    border-top: 1px solid var(--color-bg-tertiary);
+    background-color: #0D1B2A;
+    border-top: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .footer-cta-section h2 {
     font-size: 2.5rem;
     margin-bottom: 16px;
     letter-spacing: -1px;
+    color: #FFFFFF;
 }
 
 .footer-cta-section p {
     font-size: 1.15rem;
-    color: var(--color-gray-dark);
+    color: rgba(255, 255, 255, 0.75);
     max-width: 600px;
     margin: 0 auto 36px auto;
 }
@@ -1619,14 +1625,14 @@ img, svg {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.9rem;
-    color: var(--color-black);
+    color: #FFFFFF;
 }
 
 .main-footer {
     background-color: var(--color-black);
-    color: #718096;
+    color: rgba(255, 255, 255, 0.75);
     padding: 80px 0 40px 0;
-    border-top: 1px solid #1A1A1A;
+    border-top: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .footer-container {
@@ -1647,17 +1653,17 @@ img, svg {
 }
 
 .footer-brand-logo .brand-top {
-    color: #4A5568;
+    color: #FFFFFF;
 }
 
 .footer-brand-logo .brand-bottom {
-    color: #A0AEC0;
+    color: var(--color-orange);
 }
 
 .footer-divider {
     width: 100%;
     height: 1px;
-    background-color: #2D3748;
+    background-color: rgba(37, 99, 235, 0.2);
     margin: 30px 0;
 }
 
@@ -1673,7 +1679,7 @@ img, svg {
 .footer-copyrights {
     text-align: left;
     font-size: 0.85rem;
-    color: #718096;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .footer-copyrights p {
@@ -1685,12 +1691,12 @@ img, svg {
 }
 
 .footer-copyrights strong {
-    color: var(--color-white);
+    color: #FFFFFF;
     font-weight: 700;
 }
 
 .footer-sub-copyright {
-    color: #4A5568;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.8rem;
 }
 
@@ -1705,7 +1711,7 @@ img, svg {
     font-family: var(--font-heading);
     font-size: 0.85rem;
     font-weight: 600;
-    color: #A0AEC0;
+    color: rgba(255, 255, 255, 0.75);
     transition: var(--transition-fast);
 }
 
@@ -1905,7 +1911,7 @@ img, svg {
     left: 0;
     width: 100%;
     height: calc(100vh - 80px);
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(13, 27, 42, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 99;
@@ -1916,7 +1922,7 @@ img, svg {
     pointer-events: none;
     transform: translateY(-10px);
     transition: opacity var(--transition-normal), transform var(--transition-normal);
-    border-top: 1px solid var(--color-bg-tertiary);
+    border-top: 1px solid rgba(37, 99, 235, 0.25);
 }
 
 .mobile-nav-overlay.active {
@@ -1936,7 +1942,7 @@ img, svg {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 1.25rem;
-    color: var(--color-black);
+    color: #FFFFFF;
 }
 
 .mobile-nav-link:hover {
@@ -2230,4 +2236,13 @@ img, svg {
     color: var(--color-gray-dark);
     text-align: center;
     font-style: italic;
+}
+
+/* Accent Hue-Rotate Filters for Brand Images */
+.header-logo,
+.post-avatar,
+.offer-icon-img,
+.chatbot-demo-img,
+.chatbot-avatar-img {
+    filter: hue-rotate(196deg);
 }
