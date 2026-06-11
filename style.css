@@ -1553,7 +1553,8 @@ img, svg {
     user-select: none;
 }
 
-.faq-question i {
+.faq-question i,
+.faq-question .icon-chevron {
     font-size: 0.9rem;
     color: var(--color-gray-dark);
     transition: transform var(--transition-normal);
@@ -1589,7 +1590,8 @@ img, svg {
     border-bottom: 1px solid var(--color-gray-border);
 }
 
-.faq-item.active .faq-question i {
+.faq-item.active .faq-question i,
+.faq-item.active .faq-question .icon-chevron {
     transform: rotate(180deg);
     color: var(--color-orange);
 }
@@ -2299,3 +2301,18 @@ img, svg {
     min-width: 62vw;
   }
 }
+
+/* SVG Icon Helper Styles */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.icon-spin {
+    animation: spin 1s linear infinite;
+}
+.icon-svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: none;
+}
+

@@ -8,26 +8,41 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"></noscript>
+
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '923372703416193');
-    fbq('track', 'PageView');
+    function loadPixel() {
+        if (window.pixelLoaded) return;
+        window.pixelLoaded = true;
+        
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=true;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '923372703416193');
+        fbq('track', 'PageView');
+    }
+    
+    // Load on user interaction or after a 2.5-second timeout
+    const triggerEvents = ['click', 'mousedown', 'keydown', 'touchstart', 'scroll'];
+    function triggerLoad() {
+        loadPixel();
+        triggerEvents.forEach(e => window.removeEventListener(e, triggerLoad));
+    }
+    triggerEvents.forEach(e => window.addEventListener(e, triggerLoad, { passive: true }));
+    
+    // Fallback to load after 2.5 seconds if no user interaction occurs
+    setTimeout(loadPixel, 2500);
     </script>
-    <noscript><img height="1" width="1" style="display:none"
+    <noscript><img loading="lazy" height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=923372703416193&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
@@ -38,7 +53,7 @@
     <header class="main-header">
         <div class="container header-container">
             <a href="#" class="logo-wrapper">
-                <img src="assets/logo.webp" width="162" height="54" alt="Премиум студио лого" class="header-logo">
+                <img src="assets/logo.webp" fetchpriority="high" width="162" height="54" alt="Премиум студио лого" class="header-logo">
             </a>
             <nav class="main-nav">
                 <a href="#problem" class="nav-link">Къде е проблемът?</a>
@@ -106,7 +121,7 @@
                 </div>
                 <div class="hero-actions">
                     <a href="#problem" class="btn btn-primary btn-large" id="hero-primary-cta-btn">
-                        Виж как работи <i class="fas fa-arrow-down"></i>
+                        Виж как работи <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-left:4px;"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
                     </a>
                 </div>
                 <div class="hero-stats">
@@ -144,27 +159,27 @@
                 <!-- Generic Site Card -->
                 <div class="comparison-card bad">
                     <div class="card-status status-bad">
-                        <img src="assets/crossmark_red_3d.webp" width="48" height="48" alt="X" class="crossmark-img-title"> Сайтът на конкурентите ви
+                        <img loading="lazy" src="assets/crossmark_red_3d.webp" width="48" height="48" alt="X" class="crossmark-img-title"> Сайтът на конкурентите ви
                     </div>
                     <ul class="comparison-list">
                         <li>
-                            <img src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
+                            <img loading="lazy" src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
                             <span><strong>Шаблонен дизайн:</strong> Изглежда евтин и неотличим от останалите 10 фирми.</span>
                         </li>
                         <li>
-                            <img src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
+                            <img loading="lazy" src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
                             <span><strong>Снимки от Google:</strong> Клиентите веднага разпознават фалшивите стокови снимки.</span>
                         </li>
                         <li>
-                            <img src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
+                            <img loading="lazy" src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
                             <span><strong>Пасивност:</strong> Просто списък с услуги и телефон, който никой не кликва.</span>
                         </li>
                         <li>
-                            <img src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
+                            <img loading="lazy" src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
                             <span><strong>Липса на доверие:</strong> Без истински лица, без ясни доказателства за завършени проекти.</span>
                         </li>
                         <li>
-                            <img src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
+                            <img loading="lazy" src="assets/crossmark_red_3d.webp" width="40" height="40" alt="X" class="crossmark-img-list">
                             <span><strong>Без реклама:</strong> Стои просто така в мрежата без никой да го посещава.</span>
                         </li>
                     </ul>
@@ -173,27 +188,27 @@
                 <!-- Our Solution Card -->
                 <div class="comparison-card good">
                     <div class="card-status status-good">
-                        <img src="assets/checkmark_green_3d.webp" width="48" height="48" alt="Check" class="checkmark-img-title"> Вашият нов сайт от Премиум студио
+                        <img loading="lazy" src="assets/checkmark_green_3d.webp" width="48" height="48" alt="Check" class="checkmark-img-title"> Вашият нов сайт от Премиум студио
                     </div>
                     <ul class="comparison-list">
                         <li>
-                            <img src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
+                            <img loading="lazy" src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
                             <span><strong>Индивидуален дизайн:</strong> Ръчно разработен уебсайт, съобразен с вашия бранд.</span>
                         </li>
                         <li>
-                            <img src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
+                            <img loading="lazy" src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
                             <span><strong>Реални проекти и доверие:</strong> Фокус върху вашите реални завършени обекти и отзиви.</span>
                         </li>
                         <li>
-                            <img src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
+                            <img loading="lazy" src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
                             <span><strong>Интерактивен чатбот асистент:</strong> Помага на клиентите бързо да изберат точната услуга.</span>
                         </li>
                         <li>
-                            <img src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
+                            <img loading="lazy" src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
                             <span><strong>Активни Meta Реклами:</strong> 1 месец пълно управление за привличане на реални клиенти.</span>
                         </li>
                         <li>
-                            <img src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
+                            <img loading="lazy" src="assets/checkmark_green_3d.webp" width="40" height="40" alt="Check" class="checkmark-img-list">
                             <span><strong>Пълна техническа грижа:</strong> Хостинг, домейн и поддръжка безплатно за първата година.</span>
                         </li>
                     </ul>
@@ -219,7 +234,7 @@
                 <!-- Feature 1 -->
                 <div class="offer-card">
                     <div class="offer-icon-wrapper">
-                        <img src="assets/benefit_laptop.webp" width="65" height="65" alt="Авторски Уебсайт" class="offer-icon-img">
+                        <img loading="lazy" src="assets/benefit_laptop.webp" width="65" height="65" alt="Авторски Уебсайт" class="offer-icon-img">
                     </div>
                     <h3>Авторски Уебсайт</h3>
                     <p>Създаден специално за вашия бизнес. Без готови платформи, които се чупят и бавят. Изключително бърз и оптимизиран за телефони.</p>
@@ -230,7 +245,7 @@
                 <div class="offer-card featured">
                     <div class="featured-badge">НАЙ-ВАЖНОТО</div>
                     <div class="offer-icon-wrapper">
-                        <img src="assets/benefit_megaphone.webp" width="65" height="65" alt="1 Месец Meta Реклами" class="offer-icon-img">
+                        <img loading="lazy" src="assets/benefit_megaphone.webp" width="65" height="65" alt="1 Месец Meta Реклами" class="offer-icon-img">
                     </div>
                     <h3>1 Месец Meta Реклами</h3>
                     <p>Ние поемаме безплатно управлението на рекламите ви във Facebook и Instagram. Създаваме банери, тестваме, оптимизираме. <em>Препоръчителен рекламен бюджет към Facebook: минимум 400 € (782 лв.) (плаща се от вас директно към FB).</em></p>
@@ -240,7 +255,7 @@
                 <!-- Feature 3 -->
                 <div class="offer-card">
                     <div class="offer-icon-wrapper">
-                        <img src="assets/benefit_server.webp" width="65" height="65" alt="365 Дни Хостинг и Домейн" class="offer-icon-img">
+                        <img loading="lazy" src="assets/benefit_server.webp" width="65" height="65" alt="365 Дни Хостинг и Домейн" class="offer-icon-img">
                     </div>
                     <h3>365 Дни Хостинг и Домейн</h3>
                     <p>Пълно техническо обслужване и безплатен домейн за първата година. След 365 дни, ако изберете да продължите с нас, цената е <strong>само 150 € (293 лв.) на година</strong>.</p>
@@ -250,7 +265,7 @@
                 <!-- Feature 4 -->
                 <div class="offer-card">
                     <div class="offer-icon-wrapper">
-                        <img src="assets/benefit_robot.webp" width="65" height="65" alt="Чатбот Интеграция" class="offer-icon-img">
+                        <img loading="lazy" src="assets/benefit_robot.webp" width="65" height="65" alt="Чатбот Интеграция" class="offer-icon-img">
                     </div>
                     <h3>Чатбот Интеграция</h3>
                     <p>Интерактивен чатбот асистент на сайта, който помага на посетителите да се ориентират и да изберат желаната ремонтна услуга бързо и лесно.</p>
@@ -260,7 +275,7 @@
                 <!-- Feature 5 -->
                 <div class="offer-card">
                     <div class="offer-icon-wrapper">
-                        <img src="assets/benefit_seo.webp" width="65" height="65" alt="Първоначално SEO" class="offer-icon-img">
+                        <img loading="lazy" src="assets/benefit_seo.webp" width="65" height="65" alt="Първоначално SEO" class="offer-icon-img">
                     </div>
                     <h3>Първоначално SEO</h3>
                     <p>Професионална подготовка на сайта, която помага на Google да го разпознае и започне да го издига нагоре в резултатите при търсене колкото се може по-бързо.</p>
@@ -270,7 +285,7 @@
                 <!-- Feature 6 -->
                 <div class="offer-card">
                     <div class="offer-icon-wrapper">
-                        <img src="assets/benefit_support.webp" width="65" height="65" alt="Безплатно Демо и Поетапно Плащане" class="offer-icon-img">
+                        <img loading="lazy" src="assets/benefit_support.webp" width="65" height="65" alt="Безплатно Демо и Поетапно Плащане" class="offer-icon-img">
                     </div>
                     <h3>Безплатно Демо и Поетапно Плащане</h3>
                     <p>В началото ви правим безплатна демо версия на сайта. Ако ви хареса и искате да продължим, тогава заплащате 50% от сумата, а останалите 50% чак накрая, когато сайтът е изцяло готов и точно преди да пуснем рекламите.</p>
@@ -289,9 +304,9 @@
                 </div>
                 <div class="price-cta">
                     <button class="btn btn-primary btn-large trigger-popup" id="price-card-cta">
-                        Кандидатствай за офертата <i class="fas fa-arrow-right"></i>
+                        Кандидатствай за офертата <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-left:4px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </button>
-                    <p class="cta-subtext"><i class="fas fa-lock"></i> Фиксирана цена без скрити или месечни такси</p>
+                    <p class="cta-subtext"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Фиксирана цена без скрити или месечни такси</p>
                 </div>
             </div>
         </div>
@@ -312,12 +327,12 @@
                 <!-- Facebook Feed Post Simulator 1 (Roofing/Construction) -->
                 <div class="facebook-post">
                     <div class="post-header">
-                        <img src="assets/logo.webp" width="40" height="40" alt="Премиум студио" class="post-avatar">
+                        <img loading="lazy" src="assets/logo.webp" width="40" height="40" alt="Премиум студио" class="post-avatar">
                         <div class="post-meta">
                             <span class="post-author-name">Ремонти София (Премиум студио)</span>
-                            <span class="post-time">Реклама • <i class="fas fa-globe-americas"></i></span>
+                            <span class="post-time">Реклама • <svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-left:2px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
                         </div>
-                        <i class="fas fa-ellipsis-h post-more-btn"></i>
+                        <svg class="icon-svg post-more-btn" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="cursor:pointer;"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                     </div>
                     <div class="post-text">
                         🏠 Покривът ви тече или се нуждае от спешен ремонт? Не чакайте следващия дъжд да съсипе дома ви. 
@@ -327,7 +342,7 @@
                         👉 Кликнете по-долу, преминете през краткия ни асистент и получете ориентировъчна цена за вашия покрив още днес!
                     </div>
                     <div class="post-media">
-                        <img src="assets/roof-ad-banner.webp" width="500" height="262" alt="Пример за рекламен банер - строителство" class="post-image">
+                        <img loading="lazy" src="assets/roof-ad-banner.webp" width="500" height="262" alt="Пример за рекламен банер - строителство" class="post-image">
                     </div>
                     <div class="post-cta-bar">
                         <div class="post-cta-info">
@@ -341,12 +356,12 @@
                 <!-- Facebook Feed Post Simulator 2 (Solar panel installation) -->
                 <div class="facebook-post">
                     <div class="post-header">
-                        <img src="assets/logo.webp" width="40" height="40" alt="Премиум студио" class="post-avatar">
+                        <img loading="lazy" src="assets/logo.webp" width="40" height="40" alt="Премиум студио" class="post-avatar">
                         <div class="post-meta">
                             <span class="post-author-name">Соларна Енергия (Премиум студио)</span>
-                            <span class="post-time">Реклама • <i class="fas fa-globe-americas"></i></span>
+                            <span class="post-time">Реклама • <svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-left:2px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
                         </div>
-                        <i class="fas fa-ellipsis-h post-more-btn"></i>
+                        <svg class="icon-svg post-more-btn" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="cursor:pointer;"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                     </div>
                     <div class="post-text">
                         ☀️ Искате ли да намалите сметките си за ток с до 90% и да си осигурите пълна енергийна независимост? 
@@ -356,7 +371,7 @@
                         👉 Възползвайте се от държавното финансиране и спестете веднага! Изчислете примерната цена за вашата соларна инсталация за 30 секунди:
                     </div>
                     <div class="post-media">
-                        <img src="assets/solar-ad-banner.webp" width="500" height="262" alt="Пример за рекламен банер - соларни инсталации" class="post-image solar-post-image">
+                        <img loading="lazy" src="assets/solar-ad-banner.webp" width="500" height="262" alt="Пример за рекламен банер - соларни инсталации" class="post-image solar-post-image">
                     </div>
                     <div class="post-cta-bar">
                         <div class="post-cta-info">
@@ -384,13 +399,13 @@
                     </p>
                     <div class="features-list-inline">
                         <div class="feature-inline-item">
-                            <img src="assets/chatbot_lightning.webp" width="40" height="40" alt="Lightning" class="chatbot-demo-img"> <span>Интерактивно преживяване</span>
+                            <img loading="lazy" src="assets/chatbot_lightning.webp" width="40" height="40" alt="Lightning" class="chatbot-demo-img"> <span>Интерактивно преживяване</span>
                         </div>
                         <div class="feature-inline-item">
-                            <img src="assets/chatbot_funnel.webp" width="40" height="40" alt="Funnel" class="chatbot-demo-img"> <span>Филтрира несериозни запитвания</span>
+                            <img loading="lazy" src="assets/chatbot_funnel.webp" width="40" height="40" alt="Funnel" class="chatbot-demo-img"> <span>Филтрира несериозни запитвания</span>
                         </div>
                         <div class="feature-inline-item">
-                            <img src="assets/chatbot_phone.webp" width="40" height="40" alt="Phone" class="chatbot-demo-img"> <span>Работи отлично на мобилни телефони</span>
+                            <img loading="lazy" src="assets/chatbot_phone.webp" width="40" height="40" alt="Phone" class="chatbot-demo-img"> <span>Работи отлично на мобилни телефони</span>
                         </div>
                     </div>
                     <div class="demo-arrow-hint">
@@ -402,7 +417,7 @@
                 <div class="chatbot-widget">
                     <div class="chatbot-widget-header">
                         <div class="chatbot-avatar">
-                            <img src="assets/bot-avatar.webp" width="40" height="40" alt="Ремонтен Асистент" class="chatbot-avatar-img">
+                            <img loading="lazy" src="assets/bot-avatar.webp" width="40" height="40" alt="Ремонтен Асистент" class="chatbot-avatar-img">
                             <span class="status-online"></span>
                         </div>
                         <div class="chatbot-info">
@@ -449,7 +464,7 @@
                 <!-- Božidar's Card -->
                 <div class="team-card">
                     <div class="team-card-image-wrapper">
-                        <img src="assets/bozhidar.webp" width="320" height="427" alt="Божидар Иванов" class="team-card-img">
+                        <img loading="lazy" src="assets/bozhidar.webp" width="320" height="427" alt="Божидар Иванов" class="team-card-img">
                     </div>
                     <div class="team-card-info">
                         <span class="team-card-tag tag-code">ДИЗАЙН И РАЗРАБОТКА</span>
@@ -463,7 +478,7 @@
                 <!-- Kaloyan's Card -->
                 <div class="team-card">
                     <div class="team-card-image-wrapper">
-                        <img src="assets/kaloyan.webp" width="320" height="427" alt="Калоян Димитров" class="team-card-img">
+                        <img loading="lazy" src="assets/kaloyan.webp" width="320" height="427" alt="Калоян Димитров" class="team-card-img">
                     </div>
                     <div class="team-card-info">
                         <span class="team-card-tag tag-marketing">КОПИРАЙТИНГ И СТРАТЕГИЯ</span>
@@ -494,13 +509,13 @@
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card">
                     <div class="testimonial-rating">
-                        <img src="assets/stars_3d.webp" width="92" height="23" alt="5 Stars" class="stars-3d testimonial-stars">
+                        <img loading="lazy" src="assets/stars_3d.webp" width="92" height="23" alt="5 Stars" class="stars-3d testimonial-stars">
                     </div>
                     <p class="testimonial-text">
                         "Предишният ни сайт беше направен от познат и не носеше никакви клиенти. Когато момчетата пуснаха новия сайт и рекламите, първото позвъняване беше още на втория ден. Успях да намеря няколко обекта за две седмици."
                     </p>
                     <div class="testimonial-user">
-                        <img src="assets/review1.webp" width="48" height="48" alt="Георги Тодоров" class="testimonial-avatar">
+                        <img loading="lazy" src="assets/review1.webp" width="48" height="48" alt="Георги Тодоров" class="testimonial-avatar">
                         <div class="user-info">
                             <strong>Георги Тодоров</strong>
                         </div>
@@ -510,13 +525,13 @@
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <div class="testimonial-rating">
-                        <img src="assets/stars_3d.webp" width="92" height="23" alt="5 Stars" class="stars-3d testimonial-stars">
+                        <img loading="lazy" src="assets/stars_3d.webp" width="92" height="23" alt="5 Stars" class="stars-3d testimonial-stars">
                     </div>
                     <p class="testimonial-text">
                         "Момчетата работят изключително професионално и съвестно. Сайтът е много удобен, а чатботът ни спестява супер много време – хората се свързват с нас вече подготвени и с конкретно запитване."
                     </p>
                     <div class="testimonial-user">
-                        <img src="assets/review2.webp" width="48" height="48" alt="Радослав Василев" class="testimonial-avatar">
+                        <img loading="lazy" src="assets/review2.webp" width="48" height="48" alt="Радослав Василев" class="testimonial-avatar">
                         <div class="user-info">
                             <strong>Радослав Василев</strong>
                         </div>
@@ -526,13 +541,13 @@
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card">
                     <div class="testimonial-rating">
-                        <img src="assets/stars_3d.webp" width="92" height="23" alt="5 Stars" class="stars-3d testimonial-stars">
+                        <img loading="lazy" src="assets/stars_3d.webp" width="92" height="23" alt="5 Stars" class="stars-3d testimonial-stars">
                     </div>
                     <p class="testimonial-text">
                         "Изключително точни. Хостингът и поддръжката наистина са безплатни и когато искам да сменя някоя снимка в галерията, те я качват веднага. Силно препоръчвам!"
                     </p>
                     <div class="testimonial-user">
-                        <img src="assets/review3.webp" width="48" height="48" alt="Инж. Димитър Петров" class="testimonial-avatar">
+                        <img loading="lazy" src="assets/review3.webp" width="48" height="48" alt="Инж. Димитър Петров" class="testimonial-avatar">
                         <div class="user-info">
                             <strong>Инж. Димитър Петров</strong>
                         </div>
@@ -561,7 +576,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Издавате ли фактура за услугите?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>Да.</p>
@@ -571,7 +586,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Какво включва първоначалната SEO оптимизация?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>Създаване на sitemap файл и регистрация в Google, оптимизирани заглавия по ключови думи, meta тагове за класиране в търсачките и alt текстове за изображенията.</p>
@@ -581,7 +596,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Как работи чатботът и изисква ли заплащане след първата година?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>Чатботът е интегриран директно в кода на сайта (няма месечни такси към външни платформи). Той работи напълно автоматично. След първата година той продължава да функционира безплатно.</p>
@@ -591,7 +606,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Колко струва поддръжката и хостингът след първата година?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>Първата година е напълно безплатна (включена в пакета от 890 € (1740 лв.)). От втората година хостингът, поддръжката и подновяването на домейна струват общо 150 € (293 лв.) на година. Нямате никакви други задължителни или скрити такси.</p>
@@ -601,7 +616,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Може ли сайтът да се разширява в бъдеще с нови страници и галерии?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>Да, сайтът се изгражда с чист и модерен HTML/CSS/JS код, което го прави изключително бърз и лесен за разширяване. Можем да добавим нови страници, галерии с обекти или допълнителни форми за запитвания по всяко време без заплащане.</p>
@@ -611,7 +626,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Какъв е начинът на плащане? Има ли капаро?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>В началото ви правим безплатно демо и след това плащате 50% от сумата, ако искате да продължим, а другите 50% едва накрая, когато е завършен изцяло сайтът и точно преди пускането на рекламите.</p>
@@ -621,7 +636,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Колко време отнема цялостната изработка и пускането на рекламите?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>Стандартният срок за завършване на сайта е между 2 и 5 дни. Веднага след вашето одобрение на дизайна, разработваме рекламните банери и в рамките на 2-3 дни стартираме Meta (Facebook & Instagram) рекламната кампания.</p>
@@ -631,7 +646,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Кой плаща рекламния бюджет към Facebook и как се определя той?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <svg class="icon-svg icon-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="faq-answer">
                         <p>Нашето управление, оптимизация и създаване на рекламни банери са напълно безплатни за 1 месец. Бюджетът за показване на рекламите се заплаща директно от вас към Facebook (чрез добавяне на ваша банкова карта в рекламния акаунт). Можете да получите фактури от Meta за тези плащания. Препоръчителният бюджет е минимум 400-500 € (782-978 лв.) за месеца, за да си гарантирате постоянен поток от обаждания и запитвания.</p>
@@ -678,7 +693,7 @@
     <div class="modal-overlay" id="contact-modal">
         <div class="modal-card">
             <button class="modal-close-btn" id="close-modal-btn" aria-label="Close Modal">
-                <i class="fas fa-times"></i>
+                <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
             <div class="modal-header">
                 <h3>Кандидатстване за Уебсайт и Реклама</h3>
@@ -690,7 +705,7 @@
                 <div class="form-group">
                     <label for="client-phone">Телефон за връзка *</label>
                     <div class="input-wrapper">
-                        <i class="fas fa-phone-alt input-icon"></i>
+                        <svg class="icon-svg input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         <input type="tel" id="client-phone" name="phone" placeholder="Например: 0888 123 456" required>
                     </div>
                 </div>
@@ -701,14 +716,14 @@
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-full" id="submit-form-btn">
-                    Изпрати кандидатурата <i class="fas fa-paper-plane"></i>
+                    Изпрати кандидатурата <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-left:4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </form>
 
             <!-- Success State (Hidden by default) -->
             <div class="modal-success-state" id="modal-success-msg">
                 <div class="success-icon-wrapper">
-                    <i class="fas fa-check-circle"></i>
+                    <svg class="icon-svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 </div>
                 <h3>Благодарим ви за кандидатурата!</h3>
                 <p>
@@ -723,7 +738,7 @@
     <div class="modal-overlay" id="review-modal">
         <div class="modal-card">
             <button class="modal-close-btn" id="close-review-modal-btn" aria-label="Close Modal">
-                <i class="fas fa-times"></i>
+                <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
             <div class="modal-header">
                 <h3>Остави своя отзив</h3>
@@ -733,7 +748,7 @@
             <form class="modal-form" id="review-form">
                 <div class="form-group flex-column-layout">
                     <label for="review-photo" class="file-label">
-                        <i class="fas fa-cloud-upload-alt"></i> Качи снимка от устройството
+                        <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path d="M21.2 15c.1-.5.1-1.1.1-1.6 0-3.6-2.9-6.4-6.4-6.4-.7 0-1.4.1-2 .4-1.2-2.3-3.6-3.8-6.4-3.8C2.5 3.6 0 6.1 0 9.2c0 .5.1 1.0.2 1.5C.1 11.3 0 12 0 12.8c0 3.6 2.9 6.4 6.4 6.4h12.8c2.8 0 5-2.2 5-5 0-.4-.1-.8-.2-1.2z"></path><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line></svg> Качи снимка от устройството
                     </label>
                     <input type="file" id="review-photo" name="photo" accept="image/*" class="file-input-hidden">
                     <div id="file-chosen-text" class="file-chosen-preview">Няма избрана снимка</div>
@@ -742,7 +757,7 @@
                 <div class="form-group">
                     <label for="review-name">Вашето име *</label>
                     <div class="input-wrapper">
-                        <i class="fas fa-user input-icon"></i>
+                        <svg class="icon-svg input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                         <input type="text" id="review-name" name="name" placeholder="Например: Георги Тодоров" required>
                     </div>
                 </div>
@@ -753,14 +768,14 @@
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-full" id="submit-review-btn">
-                    Изпрати за преглед <i class="fas fa-paper-plane"></i>
+                    Изпрати за преглед <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-left:4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </form>
 
             <!-- Success State (Hidden by default) -->
             <div class="modal-success-state" id="review-success-msg">
                 <div class="success-icon-wrapper">
-                    <i class="fas fa-check-circle"></i>
+                    <svg class="icon-svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 </div>
                 <h3>Благодарим ви за отзива!</h3>
                 <p>
