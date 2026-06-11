@@ -2122,7 +2122,7 @@ img, svg {
 /* Mobile Devices */
 @media (max-width: 640px) {
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
     
     .hero-actions {
@@ -2307,23 +2307,32 @@ img, svg {
   .desktop-only {
     display: none;
   }
+  #rotating-word-wrapper {
+    text-align: center;
+    min-width: 340px;
+  }
+  #rotating-word {
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.85rem;
+    font-size: 2.3rem;
   }
   #rotating-word-wrapper {
-    min-width: 240px;
+    min-width: 320px;
   }
 }
 
 @media (max-width: 360px) {
   .hero-title {
-    font-size: 1.7rem;
+    font-size: 2.1rem;
   }
   #rotating-word-wrapper {
-    min-width: 220px;
+    min-width: 280px;
   }
 }
 
