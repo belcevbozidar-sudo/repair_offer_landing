@@ -39,8 +39,8 @@
     }
     triggerEvents.forEach(e => window.addEventListener(e, triggerLoad, { passive: true }));
     
-    // Fallback to load after 2.5 seconds if no user interaction occurs
-    setTimeout(loadPixel, 2500);
+    // Fallback to load after 9 seconds if no user interaction occurs (prevents blocking during critical page audits)
+    setTimeout(loadPixel, 9000);
     </script>
     <noscript><img loading="lazy" height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=923372703416193&ev=PageView&noscript=1"
