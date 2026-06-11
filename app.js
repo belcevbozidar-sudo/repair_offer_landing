@@ -7,11 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-cta-btn');
+    const mainHeader = document.querySelector('.main-header');
 
     function toggleMenu() {
         menuToggle.classList.toggle('active');
         mobileNavOverlay.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
+        if (mainHeader) {
+            mainHeader.classList.toggle('menu-open');
+        }
     }
 
     if (menuToggle) {
@@ -32,6 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMenu();
         }
     });
+
+    // Header Scroll dynamic styling
+    function handleScroll() {
+        if (window.scrollY > 50) {
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
+    }
+    if (mainHeader) {
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+    }
 
     // ==========================================
     // 2. Modal Popup Contact Form

@@ -218,14 +218,22 @@ img, svg {
    4. Header & Navigation
    ========================================== */
 .main-header {
-    background-color: rgba(13, 27, 42, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid rgba(37, 99, 235, 0);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+}
+
+.main-header.scrolled,
+.main-header.menu-open {
+    background-color: rgba(13, 27, 42, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(37, 99, 235, 0.25);
-    transition: var(--transition-normal);
 }
 
 .header-container {
@@ -318,7 +326,8 @@ img, svg {
    5. Hero Section
    ========================================== */
 .hero-section {
-    padding: 40px 0 100px 0;
+    padding: 120px 0 100px 0;
+    margin-top: -80px;
     background: linear-gradient(to bottom, #0066ff 0%, #060e1a 35%, #060e1a 65%, #0066ff 92%, #ffffff 100%);
     border-bottom: none;
     overflow: hidden;
@@ -2123,7 +2132,9 @@ img, svg {
     }
 
     .hero-section {
-        padding: 30px 0 80px 0;
+        margin-top: -60px;
+        padding-top: 90px;
+        padding-bottom: 80px;
     }
 }
 
