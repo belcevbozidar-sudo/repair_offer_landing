@@ -319,7 +319,7 @@ img, svg {
    ========================================== */
 .hero-section {
     padding: 40px 0 100px 0;
-    background-color: #0D1B2A;
+    background: linear-gradient(to bottom, #0066ff 0%, #060e1a 35%, #060e1a 65%, #0066ff 100%);
     border-bottom: 1px solid rgba(37, 99, 235, 0.25);
     overflow: hidden;
     position: relative;
