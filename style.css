@@ -434,7 +434,7 @@ img, svg {
     display: flex;
     justify-content: center;
     gap: 48px;
-    border-top: 1px solid var(--color-gray-light);
+    border-top: 1px solid rgba(37, 99, 235, 0.2);
     padding-top: 24px;
     width: 100%;
 }
@@ -488,7 +488,7 @@ img, svg {
 .hero-trust-text {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-charcoal);
+    color: #FFFFFF;
 }
 
 .stat-item {
@@ -500,12 +500,12 @@ img, svg {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 800;
-    color: var(--color-black);
+    color: #FFFFFF;
 }
 
 .stat-label {
     font-size: 0.75rem;
-    color: var(--color-gray-dark);
+    color: #FFFFFF;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -2238,9 +2238,12 @@ img, svg {
     font-style: italic;
 }
 
-/* Accent Hue-Rotate Filters for Brand Images */
+/* Accent Image Filters */
 .header-logo,
-.post-avatar,
+.post-avatar {
+    filter: invert(1);
+}
+
 .offer-icon-img,
 .chatbot-demo-img,
 .chatbot-avatar-img {
