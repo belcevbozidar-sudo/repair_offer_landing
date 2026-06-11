@@ -676,7 +676,7 @@ img, svg {
    ========================================== */
 .offer-section {
     padding: 35px 0 80px 0;
-    background: linear-gradient(to bottom, #0066ff 0%, #060e1a 35%, #060e1a 65%, #0066ff 92%, #ffffff 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #0066ff 15%, #060e1a 35%, #060e1a 65%, #0066ff 85%, var(--color-bg-secondary) 100%);
     color: rgba(255, 255, 255, 0.75);
     position: relative;
 }
@@ -2256,7 +2256,8 @@ img, svg {
 
 .offer-icon-img,
 .chatbot-demo-img,
-.chatbot-avatar-img {
+.chatbot-avatar-img,
+.post-avatar {
     filter: hue-rotate(196deg);
 }
 

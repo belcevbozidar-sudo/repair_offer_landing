@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.style.opacity = '0';
             setTimeout(() => {
                 i = (i + 1) % words.length;
-                el.textContent = words[i];
+                el.textContent = words[i] + '?';
                 el.style.opacity = '1';
             }, 280);
         }, 2200);
