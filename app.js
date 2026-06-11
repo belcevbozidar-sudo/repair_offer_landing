@@ -432,21 +432,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 5. Rotating Word Animation
+    // 5. Rotating Word Animation (Slide Effect)
     // ==========================================
-    const words = ["шаблонен", "евтин", "незапомнящ се", "остарял", "невидим", "скучен", "непрофесионален"];
-    let i = 0;
-    const el = document.getElementById('rotating-word');
-    if (el) {
-        setInterval(() => {
-            el.style.transition = 'opacity 0.28s ease';
-            el.style.opacity = '0';
-            setTimeout(() => {
-                i = (i + 1) % words.length;
-                el.textContent = words[i] + '?';
-                el.style.opacity = '1';
-            }, 280);
-        }, 2200);
-    }
+    (function() {
+        const words = [
+            "шаблонен",
+            "евтин",
+            "незапомнящ се",
+            "остарял",
+            "невидим",
+            "скучен",
+            "непрофесионален"
+        ];
+        let index = 0;
+        const el = document.getElementById('rotating-word');
+        if (!el) return;
+
+        setInterval(function() {
+            el.classList.remove('slide-in');
+            el.classList.add('slide-out');
+
+            setTimeout(function() {
+                index = (index + 1) % words.length;
+                el.textContent = words[index];
+                el.classList.remove('slide-out');
+                el.classList.add('slide-in');
+            }, 320);
+
+        }, 2400);
+    })();
 
 });

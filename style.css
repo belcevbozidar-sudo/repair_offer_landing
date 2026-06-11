@@ -2261,23 +2261,39 @@ img, svg {
     filter: hue-rotate(196deg);
 }
 
-/* Rotating word animation and scaling styles */
-#rotating-word {
+@keyframes slideUp-out {
+  0%   { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(-110%); opacity: 0; }
+}
+@keyframes slideUp-in {
+  0%   { transform: translateY(110%); opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+.slide-out {
+  animation: slideUp-out 0.32s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.slide-in {
+  animation: slideUp-in 0.32s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+#rotating-word-wrapper {
   display: inline-block;
   min-width: 320px;
   text-align: center;
-  color: #60A5FA;
-  font-style: italic;
+  vertical-align: bottom;
+  overflow: hidden;
+  height: 1.2em;
+  position: relative;
 }
 
 @media (max-width: 768px) {
-  #rotating-word {
+  #rotating-word-wrapper {
     min-width: 52vw;
   }
 }
 
 @media (max-width: 480px) {
-  #rotating-word {
-    min-width: 60vw;
+  #rotating-word-wrapper {
+    min-width: 62vw;
   }
 }
