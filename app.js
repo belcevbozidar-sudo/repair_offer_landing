@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(function() {
                 index = (index + 1) % words.length;
-                el.textContent = words[index];
+                el.textContent = words[index] + '?';
                 el.classList.remove('slide-out');
                 el.classList.add('slide-in');
             }, 320);
