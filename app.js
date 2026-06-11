@@ -431,4 +431,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ==========================================
+    // 5. Rotating Word Animation
+    // ==========================================
+    const words = ["шаблонен", "евтин", "незапомнящ се", "остарял", "невидим", "скучен", "непрофесионален"];
+    let i = 0;
+    const el = document.getElementById('rotating-word');
+    if (el) {
+        setInterval(() => {
+            el.style.transition = 'opacity 0.28s ease';
+            el.style.opacity = '0';
+            setTimeout(() => {
+                i = (i + 1) % words.length;
+                el.textContent = words[i];
+                el.style.opacity = '1';
+            }, 280);
+        }, 2200);
+    }
+
 });
