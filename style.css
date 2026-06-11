@@ -2262,12 +2262,14 @@ img, svg {
 }
 
 @keyframes slideUp-out {
-  0%   { transform: translateY(0);    opacity: 1; }
+  0%   { transform: translateY(0);     opacity: 1; }
+  40%  { transform: translateY(-40%);  opacity: 0; }
   100% { transform: translateY(-110%); opacity: 0; }
 }
 @keyframes slideUp-in {
-  0%   { transform: translateY(110%); opacity: 0; }
-  100% { transform: translateY(0);    opacity: 1; }
+  0%   { transform: translateY(110%);  opacity: 0; }
+  60%  { transform: translateY(20%);   opacity: 0; }
+  100% { transform: translateY(0);     opacity: 1; }
 }
 .slide-out {
   animation: slideUp-out 0.32s cubic-bezier(0.4, 0, 0.2, 1) forwards;
