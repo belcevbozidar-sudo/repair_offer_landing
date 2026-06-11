@@ -2122,7 +2122,7 @@ img, svg {
 /* Mobile Devices */
 @media (max-width: 640px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .hero-actions {
@@ -2310,8 +2310,20 @@ img, svg {
 }
 
 @media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
   #rotating-word-wrapper {
-    min-width: 340px;
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.7rem;
+  }
+  #rotating-word-wrapper {
+    min-width: 220px;
   }
 }
 
